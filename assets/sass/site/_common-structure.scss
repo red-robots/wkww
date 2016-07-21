@@ -17,76 +17,57 @@ div {
 	hyphens: auto;
 }
 .clear {clear: both;}
+.clear-bottom {
+	&:after {
+		content:"";
+		clear: both;
+		display: block;
+	}
+}
 .wrapper {
 	width: 100%;
 	margin: 0px auto;
-	padding: 20px;
-	
-	@media screen and (min-width: $tabwidth) {
-		width: 100%;
-	}
-	@media screen and (min-width: $deskwidth) {
-		width: 1200px;
-		padding: 0px;
-	}
 }
 
-.content-area {
-	width: 100%;
-	margin: 0px auto;
-	
-	@media screen and (min-width: $tabwidth) {
-		width: 66%;
-		float: left;
-		margin: 0;
-	}
-	@media screen and (min-width: $deskwidth) {
-		/*width: 1200px;*/
-	}
-}
-
-.widget-area {
-	width: 100%;
-	margin: 0px auto;
-	
-	@media screen and (min-width: $tabwidth) {
-		width: 26%;
-		float: right;
-		margin: 0;
-	}
-	@media screen and (min-width: $deskwidth) {
-		/*width: 1200px;*/
-	}
-}
-
-/* Logo */
-.logo , h1.logo {
-	width: 300px;
-	height: 200px;
-	background-image: url(images/logo.png);	
-	margin: 10px auto;
-
-	@media screen and (min-width: $tabwidth) {
-		width: 300px;
-		height: 200px;
-		float: left;
-		margin: 0;
-	}
-	@media screen and (min-width: $deskwidth) {
-		/*width: 1200px;*/
-	}
-}
-.logo a, h1.logo a {
-	width: 300px;
-	height: 200px;
-	display: block;
-	text-indent: -9000px;
-
-	@media screen and (min-width: $tabwidth) {
-		width: 300px;
-		height: 200px;
-	}
-	@media screen and (min-width: $deskwidth) {
-		/*width: 1200px;*/
+#colophon {
+	.wrapper {
+		padding: $size__margin-tiny 2.5*$size__margin-tiny;
+		@media screen and (min-width: $mobilelandscapewidth){
+			padding: $size__margin-medium 2.5*$size__margin-medium;
+		}
+		.site-info {
+			> * {
+				display: block;
+				width: 100%;
+				margin: 0;
+				text-align: center;
+				@media screen and (min-width: $mobilelandscapewidth) {
+					display: inline-block;
+					width: auto;
+				}
+			}
+		}
+		.footer-menu {
+			
+		}
+		.sitemap {
+		
+		}
+		nav {
+			ul {
+				margin: 0;
+				padding: 0;
+				li {
+					margin: 0;
+					padding: 0;
+					text-align: center;
+					width: 100%;
+					@media screen and (min-width: $mobilelandscapewidth) {
+						display: inline-block;
+						width: auto;
+					}
+				}
+			}
+		}
 	}
 }

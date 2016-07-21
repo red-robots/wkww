@@ -1,0 +1,52 @@
+#primary-home {
+	#main {
+		article {
+			padding: $size__margin-tiny;
+			padding-bottom: 0;
+			display: block;
+			width: 100%;
+			@media screen and (min-width: $mobilelandscapewidth){
+				padding: $size__margin-medium;
+			}
+			.row.gallery-nav-title.clear-bottom {
+				.gallery.wrapper.left-column.size-4-3 {
+					width: 100%;
+					margin: 0;
+					@media screen and (min-width: $mobilelandscapewidth){
+						width: $size__home-left-column-width;
+						float: left;
+					}
+					.slides {
+						.slide {
+							
+						}
+					}
+				}
+				.nav-title.wrapper.right-column {
+					width: 100%;
+					margin: 0;
+					@media screen and (min-width: $mobilelandscapewidth){
+						width: 100%-$size__home-left-column-width;
+						float: right;
+					}
+					.title{
+					}
+					nav {
+					}
+				}
+			}
+			.row.copy {
+				width: 100%;
+				margin: 0;
+				padding: $size__margin-tiny 1.5*$size__margin-tiny; 
+				@media screen and (min-width: $mobilelandscapewidth){
+					padding: $size__margin-medium 1.5*$size__margin-medium;
+				}
+				@media screen and (min-width: $tabwidth){
+					width: $size__home-left-column-width;
+					margin: 0 auto 0 0;
+				}
+			}
+		}
+	}
+}

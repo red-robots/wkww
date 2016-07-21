@@ -17,8 +17,8 @@ get_header("home"); ?>
 	<div id="primary-home" class="content-area">
 		<main id="main" class="site-main" role="main">
 			<article>
-				<div>
-					<div class="gallery wrapper left-column">
+				<div class="row gallery-nav-title clear-bottom">
+					<div class="gallery wrapper left-column size-4-3">
 						<?php if(get_field("gallery")): 
 							$images = get_field("gallery");
 							if($images!=null && count($images)>0): ?>
@@ -31,9 +31,7 @@ get_header("home"); ?>
 						endif; //if gallery?>
 					</div><!--.gallery .wrapper .left-column-->
 					<header class="nav-title wrapper right-column">
-						<?php if(get_field("title_of_firm","option")):?>
-							<h1 class="title"><?php echo get_field("title_of_firm","option");?></h1>
-						<?php endif; ?>
+						<img src="<?php if(get_field("logo","option"))echo wp_get_attachment_image_src(get_field("logo","option"),"full")[0];?>" alt="WKWW Architects Logo" id="logo">
 						<nav>
 							<?php wp_nav_menu( array( 'theme_location'=>'primary' ) ); ?>
 						</nav>

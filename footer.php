@@ -17,17 +17,17 @@
 		<div class="wrapper" style="background-image: url('<?php if(get_field("footer_background","option"))echo wp_get_attachment_image_src(get_field("footer_background","option"),"full")[0];?>');">
 			<div class="site-info">
 				<?php if(get_field("address_line_1","option")):?>
-					<div class="address-line-1"><?php echo get_field("address_line_1","option");?></div>
+					<div class="address-line-1"><?php echo get_field("address_line_1","option");?></div><!--.address-line-1-->
 				<?php endif;?>
 				<?php if(get_field("address_line_2","option")):?>
-					<div class="address-line-2"><?php echo get_field("address_line_2","option");?></div>
+					<div class="address-line-2"><?php echo get_field("address_line_2","option");?></div><!--.address-line-2-->
 				<?php endif;?>
 				<?php if(get_field("city_state_zip","option")):?>
-					<div class="city-state-zip"><?php echo get_field("city_state_zip","option");?></div>
+					<div class="city-state-zip"><?php echo get_field("city_state_zip","option");?></div><!--.city-state-zip-->
 				<?php endif;?>
-				/
+				<div class="seperator">/</div><!--.seperator-->
 				<?php if(get_field("telephone_number","option")):?>
-					<div class="telephone-number"><?php echo get_field("telephone_number","option");?></div>
+					<div class="telephone-number"><?php echo get_field("telephone_number","option");?></div><!--.telephone-number-->
 				<?php endif;?>
 			</div><!-- .site-info -->
 			<nav class="footer-menu">
