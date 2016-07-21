@@ -47,16 +47,20 @@ get_header(); ?>
 				<?php endif;//endif for type from !== null?>
 			</header>
 			<?php if($type_from!==null):?>
-				<div class="copy project-type description">
+				<section class="copy project-type description">
 					<?php echo $type_from->description; ?>
-				</div><!--.copy .project-type .description-->
+				</section><!--.copy .project-type .description-->
 			<?php endif;//endif for type from !== null?>
-			<div class="projects-sub-title wrapper">
-				<h2 class="sub-title"><?php $post_obj = get_post_type_object('post');
-				if($post_obj!==null)echo $post_obj->labels->name;?></h2>
+			<section class="projects-sub-title wrapper">
+				<?php $post_obj = get_post_type_object('post');
+				if($post_obj!==null):?>
+					<header>
+						<h2 class="sub-title"><?php echo $post_obj->labels->name;?></h2>
+					</header>
+				<?php endif;?>
 				<?php $post_type = get_query_var('post_type',null);?>
 				<div class="projects-featured-project wrapper">
-					<div class="projects wrapper left-column">
+					<aside class="projects wrapper left-column">
 						<?php $projects_args = array('post_type'=>'post','order'=>'ASC','orderby'=>'name','posts_per_page'=>-1);
 						if($type_from!==null)
 							$projects_args['tax_query']=array(
@@ -87,7 +91,7 @@ get_header(); ?>
 							<?php endwhile;//endwhile for have projects
 							wp_reset_postdata();
 						endif;//end if for have projects?>
-					</div><!--.projects .wrapper .left-column-->
+					</aside><!--.projects .wrapper .left-column-->
 					<div class="featured-project wrapper right-column">
 						<?php $reset = 0;
 						if($post_type===null||strcmp($post_type,'post')!==0):
@@ -97,37 +101,39 @@ get_header(); ?>
 							<?php if ( have_posts() ): the_post();$reset=1;endif;?>
 						<?php endif;//endif for if post type is null?>
 						<?php if($reset===1):?>
-							<header>
-								<h2 class="title"><?php the_title();?></h2>
-								<?php if(get_field("location")):?>
-									<p class="location"><?php echo get_field("location");?></p>
+							<article class="featured-article">
+								<header>
+									<h2 class="title"><?php the_title();?></h2>
+									<?php if(get_field("location")):?>
+										<p class="location"><?php echo get_field("location");?></p>
+									<?php endif;?>
+								</header>
+								<?php $images = get_field('gallery');
+								if(is_array($images)&&!empty($images)):?>									
+									<section class="gallery wrapper">
+										<div class="featured-image wrapper">
+											<img src="<?php echo $images[0]['url'];?>" alt="<?php echo $images[0]['title'];?>"> 
+										</div><!--.featured-image .wrapper-->
+										<div class="thumbnail wrapper">
+											<?php foreach($images as $image):?>
+												<div class="thumbnail">		
+													<img src="<?php echo $image['url'];?>" alt="<?php echo $image['title'];?>">
+												</div><!--.thumbnail-->
+											<?php endforeach;?>
+										</div><!--.thumbnail .wrapper-->
+									</section><!--.gallery .wrapper-->
 								<?php endif;?>
-							</header>
-							<?php $images = get_field('gallery');
-							if(is_array($images)&&!empty($images)):?>									
-								<div class="gallery wrapper">
-									<div class="featured-image wrapper">
-										<img src="<?php echo $images[0]['url'];?>" alt="<?php echo $images[0]['title'];?>"> 
-									</div><!--.featured-image .wrapper-->
-									<div class="thumbnail wrapper">
-										<?php foreach($images as $image):?>
-											<div class="thumbnail">		
-												<img src="<?php echo $image['url'];?>" alt="<?php echo $image['title'];?>">
-											</div><!--.thumbnail-->
-										<?php endforeach;?>
-									</div><!--.thumbnail .wrapper-->
-								</div><!--.gallery .wrapper-->
-							<?php endif;?>
-							<?php if(get_the_content()):?>
-								<div class="copy">
-									<?php the_content();?>
-								</div><!--.copy-->
-							<?php endif;?>
+								<?php if(get_the_content()):?>
+									<section class="copy">
+										<?php the_content();?>
+									</section><!--.copy-->
+								<?php endif;?>
+							</article><!--.featured-article-->
 							<?php wp_reset_postdata();?>
 						<?php endif;//endif for if reset 1?>
 					</div><!--.featured-project .wrapper .right-column-->
 				</div><!--.projects-featured-project .wrapper-->
-			</div><!--.projects-sub-title .wrapper-->
+			</section><!--.projects-sub-title .wrapper-->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
