@@ -6,4 +6,5 @@
  *
  * @package ACStarter
  */
-get_template_part("single");
+
+ get_template_part("single");
