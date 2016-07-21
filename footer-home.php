@@ -13,7 +13,7 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
+	<footer id="colophon-home" class="site-footer" role="contentinfo">
 		<div class="wrapper">
 			<div class="site-info">
 				<?php if(get_field("address_line_1","option")):?>

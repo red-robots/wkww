@@ -7,3 +7,4 @@
  * @package ACStarter
  */
 
+get_template_part("./pages/page-services");

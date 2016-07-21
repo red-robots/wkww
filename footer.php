@@ -14,13 +14,29 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="wrapper">
+		<div class="wrapper" style="background-image: url('<?php if(get_field("footer_background","option"))echo wp_get_attachment_image_src(get_field("footer_background","option"),"full")[0];?>');">
 			<div class="site-info">
-				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'acstarter' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'acstarter' ), 'WordPress' ); ?></a>
-				<span class="sep"> | </span>
-				<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'acstarter' ), 'acstarter', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
+				<?php if(get_field("address_line_1","option")):?>
+					<div class="address-line-1"><?php echo get_field("address_line_1","option");?></div>
+				<?php endif;?>
+				<?php if(get_field("address_line_2","option")):?>
+					<div class="address-line-2"><?php echo get_field("address_line_2","option");?></div>
+				<?php endif;?>
+				<?php if(get_field("city_state_zip","option")):?>
+					<div class="city-state-zip"><?php echo get_field("city_state_zip","option");?></div>
+				<?php endif;?>
+				/
+				<?php if(get_field("telephone_number","option")):?>
+					<div class="telephone-number"><?php echo get_field("telephone_number","option");?></div>
+				<?php endif;?>
 			</div><!-- .site-info -->
-	</div><!-- wrapper -->
+			<nav class="footer-menu">
+				<?php wp_nav_menu( array( 'theme_location'=>'footer' ) ); ?>
+			</nav>
+			<nav class="sitemap">
+				<?php wp_nav_menu( array( 'theme_location'=>'sitemap' ) ); ?>
+			</nav>
+		</div><!-- wrapper -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
