@@ -17,7 +17,7 @@ get_header(); ?>
 						<h1 class="title"><?php echo get_the_title();?></h1>
 					</header>
 					<?php if(get_the_content()):?>
-						<section class="copy">
+						<section class="services copy">
 							<?php the_content();?>
 						</section><!--.copy-->
 					<?php endif;?>

@@ -23,6 +23,6 @@
 <?php $post = get_post(2);
 setup_postdata($post);?>
 
-<body <?php body_class(); ?> <?php if(get_field("background"))echo 'style="background-image: url(\''.get_field("background").'\');"'?>>
+<body <?php body_class(); ?> <?php if(get_field("background"))echo 'style="background-image: url(\''.wp_get_attachment_image_src(get_field("background"),"full")[0].'\');"'?>>
 <div id="page" class="site">
 	<div id="content" class="site-content wrapper">

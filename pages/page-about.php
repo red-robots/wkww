@@ -28,15 +28,19 @@ get_header(); ?>
 								$person = get_sub_field("name");
 								$copy = get_sub_field("description");
 								if($copy && $person):?>
-									<div class="architect js-blocks">
-										<h2><?php echo $person?></h2>
-										<div class="copy"><?php echo $copy;?></div><!--.copy-->
+									<div class="architect">
+										<header>
+											<h2><?php echo $person?></h2>
+										</header>
+										<div class="copy">
+											<?php echo $copy;?>
+										</div><!--.copy-->
 									</div><!--.architect-->
 								<?php endif;//endif for person and copy?>
 							<?php endwhile;//endwhile for have rows?>
 						</section><!--.architect .wrapper-->
 					<?php endif;//if for have rows?>
-					<section class="copy">
+					<section class="architect copy">
 						<?php if(get_field("title_of_firm","option")):?>
 							<header>
 								<h2><?php echo get_field("title_of_firm","option");?></h2>
@@ -46,6 +50,11 @@ get_header(); ?>
 							<?php $copy = get_field("description");
 							$featured_image_url = wp_get_attachment_image_src(get_field("featured_image"),"full")[0];
 							$thumbnail = get_post(get_field("featured_image"));
+							if($featured_image_url):?>
+								<div class="featured-image right-column">
+									<img src="<?php echo $featured_image_url;?>" alt="<?php if($thumbnail)echo $thumbnail->post_title;?>">
+								</div><!--.featured-image .right-column-->
+							<?php endif;
 							if($copy):
 								if($featured_image_url):?>
 									<div class="copy left-column">
@@ -54,11 +63,6 @@ get_header(); ?>
 								<?php endif;?>
 									<?php echo $copy;?>
 								</div><!--.copy .left-column || .no-column-->
-							<?php endif;
-							if($featured_image_url):?>
-								<div class="featured-image right-column">
-									<img src="<?php echo $featured_image_url;?>" alt="<?php if($thumbnail)echo $thumbnail->post_title;?>">
-								</div><!--.featured-image .right-column-->
 							<?php endif;?>
 						</div><!--.copy-image wrapper-->
 					</section><!--.copy-->
@@ -66,6 +70,5 @@ get_header(); ?>
 			<?php endif; //for for main loop?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
 <?php
 get_footer();
