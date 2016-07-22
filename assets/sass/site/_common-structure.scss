@@ -38,6 +38,8 @@ a.surrounding {
 }
 
 #masthead {
+	max-width: $deskwidth;
+	margin: 0 auto;
 	> .wrapper {
 		padding: 0 $size__margin-tiny;
 		display: flex;

@@ -81,7 +81,17 @@ jQuery(document).ready(function ($) {
 	*
 	------------------------------------*/
 	$('.js-blocks').matchHeight();
-
+	
+	/*
+	 *
+	 */
+	$(window).on('ready resize',function(){
+		var $4x3 = $('.size-4-3');
+		$4x3.css({
+			"height": Number($4x3.width())*3/4+"px"
+		});
+	});
+	
 	/*
 	*
 	*	Wow Animation
@@ -89,4 +99,6 @@ jQuery(document).ready(function ($) {
 	------------------------------------*/
 	new WOW().init();
 
+	
+	
 });// END #####################################    END
