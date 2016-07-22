@@ -32,11 +32,11 @@
 			}
 			.architect {
 				width: 100%;
-				flex: 0 0 100%;
+				flex: 0 0 auto;
 				text-align: center;
 				@media screen and (min-width: $mobilelandscapewidth) {
 					width: (100%-($size__about-architect-span*$size__about-architect-margin))/$size__about-architect-span;
-					flex: 0 1 (100%-($size__about-architect-span*$size__about-architect-margin))/$size__about-architect-span;
+					flex: 0 1 auto;
 				}
 				header h2 {
 				}
@@ -57,11 +57,10 @@
 				}
 				.featured-image.right-column {
 					width: 100%;
-					flex: 0 0 100%;
+					flex: 0 0 auto;
 					order: 1;
 					@media screen and (min-width: $mobilelandscapewidth) {
 						width: $size__about-featured-image-width;
-						flex: 0 1 $size__about-featured-image-width;	
 						order: 2;
 					}
 					img {
@@ -70,17 +69,16 @@
 				}
 				.copy.left-column {
 					width: 100%;
-					flex: 0 0 100%;
+					flex: 0 0 auto;
 					order: 2;
 					@media screen and (min-width: $mobilelandscapewidth) {
 						width: 100%-$size__about-featured-image-width;
-						flex: 0 1 100%-$size__about-featured-image-width;	
 						order: 1;
 					}
 				}
 				.copy.no-column {
 					width: 100%;
-					flex: 0 0 100%;
+					flex: 0 0 auto;
 					order: 1;
 				}
 			}
@@ -100,11 +98,11 @@
 			flex-wrap: wrap;
 			.service {
 				width: 100%;
-				flex: 0 0 100%;
+				flex: 0 0 auto;
 				text-align: center;
 				@media screen and (min-width: $mobilelandscapewidth) {
 					width: (100%-($size__service-span*$size__service-margin))/$size__service-span;
-					flex: 0 1 (100%-($size__service-span*$size__service-margin))/$size__service-span;
+					flex: 0 1 auto;
 				}
 				header h2 {
 				
@@ -149,12 +147,11 @@
 						margin: 0 2%;
 						padding: 0;
 						width: 100%;
-						flex: 0 0 100%;
+						flex: 0 0 auto;
 						list-style: none;
 						@media screen and (min-width: $mobilelandscapewidth) {
 							display: inline-block;
 							width: auto;
-							flex: 0 0 auto;
 						}
 					}
 				}
@@ -179,11 +176,10 @@
 				}
 				.featured-project.wrapper.right-column {
 					width: 100%;
-					flex: 0 0 100%;
+					flex: 0 0 auto;
 					order: 1;
 					@media screen and (min-width: $mobilelandscapewidth) {
 						width: $size__portfolio-featured-article-width;
-						flex: 0 1 $size__portfolio-featured-article-width;	
 						order: 2;
 					}
 					.featured-article {
@@ -213,14 +209,14 @@
 				}
 				.projects.wrapper.left-column {
 					width: 100%;
-					flex: 0 0 100%;
+					flex: 0 0 auto;
 					order: 2;
 					@media screen and (min-width: $mobilelandscapewidth) {
-						width: 100%-$size__portfolio-featured-article-width;
-						flex: 0 1 100%-$size__portfolio-featured-article-width;	
+						width: 100%-$size__portfolio-featured-article-width;	
 						order: 1;
 					}
 					.project {
+						position: relative;
 						.image.wrapper.js-blocks {
 							
 						}
@@ -239,7 +235,7 @@
 }
 
 #colophon {
-	.wrapper {
+	> .wrapper {
 		padding: $size__margin-tiny;
 		display: flex;
 		flex-wrap: wrap;
@@ -255,44 +251,45 @@
 		}
 		.site-info {
 			width: 100%;
-			flex: 0 0 100%;
+			flex: 0 0 auto;
 			display: flex;
 			justify-content: center;
+			align-items: stretch;
+			align-content: stretch;
 			flex-wrap: wrap;
 			@media screen and (min-width: $mobilelandscapewidth){
-				width: 40%;
-				flex: 0 1 40%;
+				width: auto;
+				flex: 0 1 auto;
 				justify-content: flex-start;	
 			}			
 			> * {
 				display: block;
 				width: 100%;
-				flex: 0 0 100%;
+				flex: 0 0 auto;
 				margin: 0;
 				text-align: center;
 				font-size: $font__size-small;
 				@media screen and (min-width: $mobilelandscapewidth) {
 					display: inline-block;
 					width: auto;
-					flex: 0 0 auto;
 					font-size: $font__size-medium-small;
 				}
 			}
 		}
 		.footer-menu {
 			width: 100%;
-			flex: 0 0 100%;
+			flex: 0 0 auto;
 			@media screen and (min-width: $mobilelandscapewidth){
-				width: 20%;
-				flex: 0 1 20%;
+				width: auto;
+				flex: 0 1 auto;
 			}
 		}
 		.sitemap {
 			width: 100%;			
-			flex: 0 0 100%;
+			flex: 0 0 auto;
 			@media screen and (min-width: $mobilelandscapewidth){
-				width: 15%;
-				flex: 0 1 15%;	
+				width: auto;
+				flex: 0 1 auto;	
 			}
 			ul {
 				@media screen and (min-width: $mobilelandscapewidth){
@@ -318,12 +315,11 @@
 					margin: 0;
 					padding: 0;
 					width: 100%;
-					flex: 0 0 100%;
+					flex: 0 0 auto;
 					list-style: none;
 					@media screen and (min-width: $mobilelandscapewidth) {
 						display: inline-block;
 						width: auto;
-						flex: 0 0 auto;
 					}
 				}
 			}

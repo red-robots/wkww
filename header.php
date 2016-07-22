@@ -24,7 +24,10 @@
 <div id="page" class="site">
 	<header id="masthead" class="site-header" role="banner">
 		<div class="wrapper">
-			<img src="<?php if(get_field("logo","option"))echo wp_get_attachment_image_src(get_field("logo","option"),"full")[0];?>" alt="WKWW Architects Logo" id="logo">
+			<div class="logo wrapper">
+				<img src="<?php if(get_field("logo","option"))echo wp_get_attachment_image_src(get_field("logo","option"),"full")[0];?>" alt="WKWW Architects Logo" id="logo">
+				<a href="<?php echo get_site_url();?>" class="surrounding"></a>
+			</div><!--.logo .wrapper-->
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 			</nav><!-- #site-navigation -->

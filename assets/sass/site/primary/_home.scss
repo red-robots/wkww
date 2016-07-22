@@ -9,29 +9,46 @@
 				padding: $size__margin-medium;
 			}
 			.row.gallery-nav-title.clear-bottom {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: stretch;
+				align-content: stretch;
+				flex-wrap: wrap;
+				@media screen and (min-width: $mobilelandscapewidth){
+					flex-wrap: nowrap;
+				}
+				.nav-title.wrapper.right-column {
+					width: 100%;
+					margin: 0;
+					flex: 0 0 auto;
+					order: 1;
+					@media screen and (min-width: $mobilelandscapewidth){
+						width: 100%-$size__home-left-column-width;
+						order: 2;
+					}
+					.logo.wrapper {
+						position: relative;
+						img {
+							
+						}
+					}
+					nav {
+					}
+				}
 				.gallery.wrapper.left-column.size-4-3 {
 					width: 100%;
 					margin: 0;
+					flex: 0 0 auto;
+					order: 2;
 					@media screen and (min-width: $mobilelandscapewidth){
 						width: $size__home-left-column-width;
-						float: left;
+						order: 1;
 					}
 					.slides {
 						.slide {
 							
 						}
-					}
-				}
-				.nav-title.wrapper.right-column {
-					width: 100%;
-					margin: 0;
-					@media screen and (min-width: $mobilelandscapewidth){
-						width: 100%-$size__home-left-column-width;
-						float: right;
-					}
-					.title{
-					}
-					nav {
 					}
 				}
 			}
@@ -51,7 +68,7 @@
 	}
 }
 #colophon-home {
-	.wrapper {
+	> .wrapper {
 		padding: $size__margin-tiny 2.5*$size__margin-tiny;
 		display: flex;
 		flex-wrap: wrap;
@@ -64,43 +81,44 @@
 		}
 		.site-info {
 			width: 100%;
-			flex: 0 0 100%;
+			flex: 0 0 auto;
 			display: flex;
 			justify-content: center;
+			align-items: stretch;
+			align-content: stretch;
 			flex-wrap: wrap;
 			@media screen and (min-width: $mobilelandscapewidth){
-				width: 40%;
-				flex: 0 1 40%;
+				width:auto;
+				flex: 0 1 auto;
 			}			
 			> * {
 				display: block;
 				width: 100%;
-				flex: 0 0 100%;
+				flex: 0 0 auto;
 				margin: 0;
 				text-align: center;
 				font-size: $font__size-small;
 				@media screen and (min-width: $mobilelandscapewidth) {
 					display: inline-block;
 					width: auto;
-					flex: 0 0 auto;
 					font-size: $font__size-medium-small;
 				}
 			}
 		}
 		.footer-menu {
 			width: 100%;
-			flex: 0 0 100%;
+			flex: 0 0 auto;
 			@media screen and (min-width: $mobilelandscapewidth){
-				width: 20%;
-				flex: 0 1 20%;
+				width: auto;
+				flex: 0 1 auto;
 			}
 		}
 		.sitemap {
 			width: 100%;
-			flex: 0 0 100%;
+			flex: 0 0 auto;
 			@media screen and (min-width: $mobilelandscapewidth){
-				width: 15%;
-				flex: 0 1 15%;
+				width: auto;
+				flex: 0 1 auto;
 			}
 		}
 		nav {
@@ -121,12 +139,11 @@
 					margin: 0;
 					padding: 0;
 					width: 100%;
-					flex: 0 0 100%;
+					flex: 0 0 auto;
 					list-style: none;
 					@media screen and (min-width: $mobilelandscapewidth) {
 						display: inline-block;
 						width: auto;
-						flex: 0 0 auto;
 					}
 				}
 			}

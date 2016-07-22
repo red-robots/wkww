@@ -28,4 +28,80 @@ div {
 	width: 100%;
 	margin: 0px auto;
 }
+a.surrounding {
+	position: absolute;
+	z-index: 2;
+	height: 100%;
+	width: 100%;
+	top:0;
+	left:0;
+}
 
+#masthead {
+	> .wrapper {
+		padding: 0 $size__margin-tiny;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		@media screen and (min-width: $mobilelandscapewidth){
+			padding: 0 $size__margin-medium;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+		}
+		.logo.wrapper {
+			width: 100%;
+			flex: 0 0 auto;
+			position: relative;
+			margin: 0;
+			@media screen and (min-width: $mobilelandscapewidth){
+				width: auto;
+				max-width: 20%;
+				flex: 0 1 auto;
+			}
+			img {
+			}
+		}
+		#site-navigation {
+			width: 100%;
+			flex: 0 0 auto;
+			@media screen and (min-width: $mobilelandscapewidth){
+				width: auto;
+				flex: 0 1 auto;
+			}
+			ul {
+				margin: 0;
+				padding: 0;
+				text-align: center;
+				font-size: $font__size-small;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: stretch;
+				align-content: stretch;
+				@media screen and (min-width: $mobilelandscapewidth){
+					font-size: $font__size-medium-small;
+				}
+				li {
+					margin: 0;
+					padding: 0;
+					width: 100%;
+					flex: 0 0 auto;
+					list-style: none;
+					@media screen and (min-width: $mobilelandscapewidth) {
+						display: inline-block;
+						width: auto;
+					}
+				}
+			}
+		}
+		.telephone-number {
+			width: 100%;
+			flex: 0 0 auto;
+			@media screen and (min-width: $mobilelandscapewidth){
+				width: auto;
+				flex: 0 1 auto;
+			}
+		}
+	}
+}

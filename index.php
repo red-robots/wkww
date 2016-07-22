@@ -18,6 +18,15 @@ get_header("home"); ?>
 		<main id="main" class="site-main" role="main">
 			<article>
 				<div class="row gallery-nav-title clear-bottom">
+					<header class="nav-title wrapper right-column">				
+						<div class="logo wrapper">
+							<img src="<?php if(get_field("logo","option"))echo wp_get_attachment_image_src(get_field("logo","option"),"full")[0];?>" alt="WKWW Architects Logo" id="logo">
+							<a href="<?php echo get_site_url();?>" class="surrounding"></a>
+						</div><!--.logo .wrapper-->
+						<nav>
+							<?php wp_nav_menu( array( 'theme_location'=>'primary' ) ); ?>
+						</nav>
+					</header><!--.nav-title .wrapper .right-column-->
 					<div class="gallery wrapper left-column size-4-3">
 						<?php if(get_field("gallery")): 
 							$images = get_field("gallery");
@@ -30,12 +39,6 @@ get_header("home"); ?>
 							<?php endif; //if images 
 						endif; //if gallery?>
 					</div><!--.gallery .wrapper .left-column-->
-					<header class="nav-title wrapper right-column">
-						<img src="<?php if(get_field("logo","option"))echo wp_get_attachment_image_src(get_field("logo","option"),"full")[0];?>" alt="WKWW Architects Logo" id="logo">
-						<nav>
-							<?php wp_nav_menu( array( 'theme_location'=>'primary' ) ); ?>
-						</nav>
-					</header><!--.nav-title .wrapper .right-column-->
 				</div><!--.row .gallery-nav-title .clear-bottom-->
 				<section class="row copy">
 					<?php the_content();?>
