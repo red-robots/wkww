@@ -49,7 +49,7 @@ get_header(); ?>
 				</header>
 				<?php if($type_from!==null):?>
 					<section class="copy project-type">
-						<?php echo $type_from->description; ?>
+						<?php echo get_field("category_description",$type_from); ?>
 					</section><!--.copy .project-type .description-->
 				<?php endif;//endif for type from !== null?>
 				<section class="projects-sub-title wrapper">
@@ -59,7 +59,8 @@ get_header(); ?>
 							<h2 class="sub-title"><?php echo $post_obj->labels->name;?></h2>
 						</header>
 					<?php endif;?>
-					<?php $post_type = get_query_var('post_type',null);?>
+					<?php $post_type = get_query_var('post_type',null);
+					$slug_of_active_project = null;?>
 					<div class="projects-featured-project wrapper">
 						<div class="featured-project wrapper right-column">
 							<?php $projects_args = array('post_type'=>'post','order'=>'ASC','orderby'=>'name','posts_per_page'=>-1);
@@ -74,9 +75,9 @@ get_header(); ?>
 							$reset = 0;
 							if($post_type===null||strcmp($post_type,'post')!==0):
 								$query = new WP_Query($projects_args);
-								if($query->have_posts()):$query->the_post();$reset=1;endif;?>
+								if($query->have_posts()):$query->the_post();$reset=1;$slug_of_active_project=$query->post->post_name;endif;?>
 							<?php else:?>
-								<?php if ( have_posts() ): the_post();$reset=1;endif;?>
+								<?php if ( have_posts() ): the_post();$reset=1;$slug_of_active_project=$post->post_name;endif;?>
 							<?php endif;//endif for if post type is null?>
 							<?php if($reset===1):?>
 								<article class="featured-article">
@@ -95,7 +96,7 @@ get_header(); ?>
 											<div class="thumbnail wrapper">
 												<?php foreach($images as $image):?>
 													<div class="thumbnail">		
-														<img src="<?php echo $image['url'];?>" alt="<?php echo $image['title'];?>">
+														<img data-full-url="<?php echo $image['url'];?>" src="<?php echo $image['sizes']['thumbnail'];?>" alt="<?php echo $image['title'];?>">
 													</div><!--.thumbnail-->
 												<?php endforeach;?>
 											</div><!--.thumbnail .wrapper-->
@@ -113,15 +114,19 @@ get_header(); ?>
 						<aside class="projects wrapper left-column">
 							<?php $query = new WP_Query($projects_args);
 							if($query->have_posts()):
-								while($query->have_posts()):$query->the_post();?>
-									<div class="project">
-										<div class="image wrapper js-blocks" style="background-image: url('<?php
+								while($query->have_posts()):$query->the_post();
+									if(strcmp($slug_of_active_project,$query->post->post_name)===0):?>
+										<div class="project active">
+									<?php else :?>
+										<div class="project">
+									<?php endif;?>
+										<div class="image wrapper" style="background-image: url('<?php
 											$images = get_field('gallery');
 											if(is_array($images)&&!empty($images))
 												echo $images[0]['sizes']['medium'];
 										?>');">
 										</div><!--.image .wrapper-->
-										<div class="title-location wrapper js-blocks">
+										<div class="title-location wrapper">
 											<h3 class="title"><?php echo get_the_title();?></h3>
 											<?php if(get_field("location")):?>
 												<p class="location"><?php echo get_field("location");?></p>

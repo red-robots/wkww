@@ -146,4 +146,15 @@ jQuery(document).ready(function ($) {
 	}
 	init_slider();//call function to init slider
 	
+	
+	/*
+	 *
+	 * Custom gallery thumbnail switcher
+	 *
+	 */	
+	$('.gallery .thumbnail img').on('click',function(){ //on thumbnail click
+		var url = $(this).attr('data-full-url'); //get url from data attribute
+		$('.gallery .featured-image img').attr('src',url); //send url to featured image
+	});
+	
 });// END #####################################    END
