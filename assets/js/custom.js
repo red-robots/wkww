@@ -83,7 +83,14 @@ jQuery(document).ready(function ($) {
 	$('.js-blocks').matchHeight();
 	
 	/*
-	 *
+	*
+	*	Wow Animation
+	*
+	------------------------------------*/
+	new WOW().init();
+
+	/*
+	 * Maintain porportion for boxes size 4x3
 	 */
 	$(window).on('ready resize',function(){
 		var $4x3 = $('.size-4-3');
@@ -92,13 +99,51 @@ jQuery(document).ready(function ($) {
 		});
 	});
 	
-	/*
-	*
-	*	Wow Animation
-	*
-	------------------------------------*/
-	new WOW().init();
-
-	
+	/*--------------------------------------------
+	 * Custom slider for homepage
+	 ------------------------------------------*/
+	function init_slider(){
+		var $container = $('#primary-home .gallery.wrapper');//get container for slides
+		var $slides = $container.css({	//set container properties and get slides
+			"position":"relative",
+			"overflow":"hidden"
+		}).find(".slides .slide");
+		if($slides.length<1){ //if no slides don't don anything else
+			return;
+		}
+		$slides.eq(0).css({ //set first slide to active and in view
+			"position":"absolute",
+			"width":"100%",
+			"height":"100%",
+			"top": 0,
+			"left": 0,
+		}).addClass("active");
+		if($slides.length<2){ //if no more slides do nothing else, just show first slide
+			return;
+		}
+		for(var i=1;i<$slides.length;i++){//for each slide after the first
+			var $this = $slides.eq(i); //get slide as $this
+			$this.css({					//set css properties for slide
+				"position":"absolute",
+				"width":"100%",
+				"height":"100%",
+				"top":0,
+				"left": 0,
+				"display":"none",
+			});
+		}
+		var timeout;//timeout with outer scope for when slides need to stop moving with clear timeout
+		function slide(){//recursive function to move slides
+			timeout = setTimeout(function(){ //set timeout
+				var $active_slide = $slides.filter(".active").removeClass("active").fadeOut();//fade active slide out
+				//if last slide move to the first, otherwise get sibling slide
+				var $next_slide = $active_slide.index() !== $slides.length-1 ? $active_slide.next() : $slides.eq(0);
+				$next_slide.addClass("active").fadeIn();//fade next slide in
+				slide();//call self recursively
+			},6000);
+		}
+		slide();
+	}
+	init_slider();//call function to init slider
 	
 });// END #####################################    END

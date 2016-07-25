@@ -7,7 +7,7 @@
 		max-width: $deskwidth;
 		margin: 0 auto;
 		@media screen and (min-width: $mobilelandscapewidth){
-			padding: $size__margin-medium;
+			padding:$size__margin-large $size__margin-medium-large $size__margin-medium-large $size__margin-medium-large;
 		}
 		> header {
 			.title {
@@ -19,6 +19,7 @@
 		 -------------------------*/
 		.copy.pre-architect {
 			width: 100%;
+			margin: $size__margin-medium 0;
 		}
 		.architect.wrapper {
 			width: 100%;
@@ -27,31 +28,46 @@
 			align-items: stretch;
 			align-content: stretch;
 			flex-wrap: wrap;
+			margin-bottom: $size__margin-tiny;
 			@media screen and (min-width: $mobilelandscapewidth) {	
 				flex-wrap: nowrap;
+				margin-bottom: $size__margin-medium-large;
 			}
 			.architect {
 				width: 100%;
 				flex: 0 0 auto;
 				text-align: center;
+				color: white;
+				padding: $size__margin-tiny;
+				margin: $size__margin-tiny 0;
+				background-color: $color__wkww-green;
 				@media screen and (min-width: $mobilelandscapewidth) {
 					width: (100%-($size__about-architect-span*$size__about-architect-margin))/$size__about-architect-span;
 					flex: 0 1 auto;
+					padding: $size__margin-medium;
+					margin: 0;
 				}
 				header h2 {
+					text-transform: uppercase;
+					color: white;
 				}
 				.copy {
+					font-weight: 700;
+					font-family: 'Quattrocento', serif;
 				}
 			}
 		}
 		.architect.copy {
 			header h2 {
 				width: 100%;
+				margin: $size__margin-medium-small;
 			}
 			.copy-image.wrapper {
 				display: flex;
 				justify-content: space-between;
 				flex-wrap: wrap;
+				align-items: stretch;
+				align-content: stretch;
 				@media screen and (min-width: $mobilelandscapewidth) {	
 					flex-wrap: nowrap;
 				}
@@ -59,12 +75,14 @@
 					width: 100%;
 					flex: 0 0 auto;
 					order: 1;
+					margin: 0;
 					@media screen and (min-width: $mobilelandscapewidth) {
 						width: $size__about-featured-image-width;
 						order: 2;
+						margin: 0 0 0 $size__margin-medium;
 					}
 					img {
-						
+						width: 100%;	
 					}
 				}
 				.copy.left-column {
@@ -124,7 +142,7 @@
 		max-width: $deskwidth;
 		margin: 0 auto;
 		@media screen and (min-width: $mobilelandscapewidth){
-			padding: $size__margin-medium;
+			padding: $size__margin-medium-large;
 		}
 		header.portfolio {
 			width: 100%;
@@ -234,95 +252,3 @@
 	}
 }
 
-#colophon {
-	> .wrapper {
-		padding: $size__margin-tiny;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
-		max-width: $deskwidth;
-		margin: 0 auto;
-		width: 100%;
-		@media screen and (min-width: $mobilelandscapewidth){
-			padding: $size__margin-medium;
-			flex-wrap: nowrap;
-			justify-content: space-between;
-		}
-		.site-info {
-			width: 100%;
-			flex: 0 0 auto;
-			display: flex;
-			justify-content: center;
-			align-items: stretch;
-			align-content: stretch;
-			flex-wrap: wrap;
-			@media screen and (min-width: $mobilelandscapewidth){
-				width: auto;
-				flex: 0 1 auto;
-				justify-content: flex-start;	
-			}			
-			> * {
-				display: block;
-				width: 100%;
-				flex: 0 0 auto;
-				margin: 0;
-				text-align: center;
-				font-size: $font__size-small;
-				@media screen and (min-width: $mobilelandscapewidth) {
-					display: inline-block;
-					width: auto;
-					font-size: $font__size-medium-small;
-				}
-			}
-		}
-		.footer-menu {
-			width: 100%;
-			flex: 0 0 auto;
-			@media screen and (min-width: $mobilelandscapewidth){
-				width: auto;
-				flex: 0 1 auto;
-			}
-		}
-		.sitemap {
-			width: 100%;			
-			flex: 0 0 auto;
-			@media screen and (min-width: $mobilelandscapewidth){
-				width: auto;
-				flex: 0 1 auto;	
-			}
-			ul {
-				@media screen and (min-width: $mobilelandscapewidth){
-					justify-content: flex-end;	
-				}
-			}
-		}
-		nav {
-			ul {
-				margin: 0;
-				padding: 0;
-				text-align: center;
-				font-size: $font__size-small;
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: center;
-				align-items: stretch;
-				align-content: stretch;
-				@media screen and (min-width: $mobilelandscapewidth){
-					font-size: $font__size-medium-small;
-				}
-				li {
-					margin: 0;
-					padding: 0;
-					width: 100%;
-					flex: 0 0 auto;
-					list-style: none;
-					@media screen and (min-width: $mobilelandscapewidth) {
-						display: inline-block;
-						width: auto;
-					}
-				}
-			}
-		}
-	}
-}

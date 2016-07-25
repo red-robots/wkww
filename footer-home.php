@@ -25,7 +25,7 @@
 				<?php if(get_field("city_state_zip","option")):?>
 					<div class="city-state-zip"><?php echo get_field("city_state_zip","option");?></div><!--.city-state-zip-->
 				<?php endif;?>
-				<div class="seperator">/</div><!--.seperator-->
+				<div class="separator">/</div><!--.seperator-->
 				<?php if(get_field("telephone_number","option")):?>
 					<div class="telephone-number"><?php echo get_field("telephone_number","option");?></div><!--.telephone-number-->
 				<?php endif;?>

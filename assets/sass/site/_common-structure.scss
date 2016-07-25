@@ -37,40 +37,215 @@ a.surrounding {
 	left:0;
 }
 
+.copy {
+	font-family: 'Quattrocento Sans', sans-serif;
+	h1,h2,h3,p {
+		&:first-child {
+			margin-top:0;
+		}
+		&:last-child {
+			margin-bottom:0;
+		}
+	}
+}
+
+.background-img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	background-position: center;
+	background-size: cover;
+}
+h1 {
+	font-size: 22px;
+}
+h2 {
+	font_size: $font__size-medium-medium-large;
+}
+p {
+	font-size: 15px;
+	margin: $size__margin-medium-small 0;
+}
+h1,h2,h3 {
+	font-family: 'Quattrocento', serif;
+	font-weight: 700;
+	color: $color__wkww-maroon;
+	margin: $size__margin-medium-small 0;
+}
+#page {
+	border-top: 2px solid $color__wkww-green;
+}
 #masthead {
-	max-width: $deskwidth;
-	margin: 0 auto;
+	border-bottom: 1px dotted lightgrey;
 	> .wrapper {
-		padding: 0 $size__margin-tiny;
+		max-width: $deskwidth;
+		margin: 0 auto;
+		padding: $size__margin-tiny;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
 		align-items: center;
 		@media screen and (min-width: $mobilelandscapewidth){
-			padding: 0 $size__margin-medium;
+			padding:  $size__margin-medium $size__margin-medium-large;
 			flex-wrap: nowrap;
 			justify-content: space-between;
 		}
 		.logo.wrapper {
-			width: 100%;
+			width: 50%;
 			flex: 0 0 auto;
 			position: relative;
-			margin: 0;
+			margin: 0 auto 0 0;
 			@media screen and (min-width: $mobilelandscapewidth){
 				width: auto;
-				max-width: 20%;
+				max-width: 15%;
 				flex: 0 1 auto;
+				margin: 0;
 			}
 			img {
+				width: 100%;
 			}
 		}
 		#site-navigation {
 			width: 100%;
 			flex: 0 0 auto;
 			@media screen and (min-width: $mobilelandscapewidth){
+				width: 55%;
+				flex: 0 1 auto;
+				max-width: 500px;
+			}
+			ul {
+				margin: 0;
+				padding: 0;
+				text-align: center;
+				font-size: $font__size-small;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: stretch;
+				align-content: stretch;
+				@media screen and (min-width: $mobilelandscapewidth){
+					font-size: $font__size-medium-small;
+					justify-content: space-between;
+				}
+				li {
+					padding: 0;
+					margin: 0 $size__margin-tiny;
+					width: auto;
+					flex: 0 0 auto;
+					list-style: none;
+					@media screen and (min-width: $mobilelandscapewidth) {
+						display: inline-block;
+						margin: 0;
+					}
+					a {
+						font-size: $font__size-medium-medium-large;
+						font-family: 'Quattrocento', serif;
+						text-decoration: none;
+						color: $color__text-main;
+					}
+				}
+			}
+		}
+		.telephone-number {
+			font-size: $font__size-medium-medium-large;
+			font-family: 'Quattrocento', serif;
+			width: auto;
+			display: none;
+			@media screen and (min-width: $mobilelandscapewidth){
+				display: block;
+				flex: 0 1 auto;
+			}
+		}
+	}
+}
+#colophon-home {
+	> .wrapper {
+		padding: $size__margin-tiny 2.5*$size__margin-tiny;
+		@media screen and (min-width: $mobilelandscapewidth){
+			padding: $size__margin-medium 2.5*$size__margin-medium-large;
+		}		
+	}
+}
+#colophon {
+	> .wrapper {
+		padding: $size__margin-tiny;
+		@media screen and (min-width: $mobilelandscapewidth){
+			padding: $size__margin-medium-large;
+		}
+	}
+}
+#colophon, #colophon-home {
+	font-family: 'Quattrocento Sans', sans-serif;
+	font-size: $font__size-medium;
+	> .wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		max-width: $deskwidth;
+		margin: 0 auto;
+		width: 100%;
+		@media screen and (min-width: $mobilelandscapewidth){
+			flex-wrap: nowrap;
+			justify-content: space-between;
+		}
+		.site-info {
+			width: 100%;
+			flex: 0 0 auto;
+			display: flex;
+			justify-content: center;
+			align-items: stretch;
+			align-content: stretch;
+			flex-wrap: wrap;
+			@media screen and (min-width: $mobilelandscapewidth){
+				width: auto;
+				flex: 0 1 auto;
+				justify-content: flex-start;	
+			}			
+			> * {
+				display: block;
+				width: 100%;
+				flex: 0 0 auto;
+				margin: 0;
+				text-align: center;
+				font-size: $font__size-small;
+				@media screen and (min-width: $mobilelandscapewidth) {
+					display: inline-block;
+					width: auto;
+					font-size: $font__size-medium-small;
+				}
+			}
+			.separator {
+				display: none;
+				@media screen and (min-width: $mobilelandscapewidth) {
+					display: block;
+				}
+			}
+		}
+		.footer-menu {
+			width: 100%;
+			flex: 0 0 auto;
+			@media screen and (min-width: $mobilelandscapewidth){
 				width: auto;
 				flex: 0 1 auto;
 			}
+		}
+		.sitemap {
+			width: 100%;			
+			flex: 0 0 auto;
+			@media screen and (min-width: $mobilelandscapewidth){
+				width: auto;
+				flex: 0 1 auto;	
+			}
+			ul {
+				@media screen and (min-width: $mobilelandscapewidth){
+					justify-content: flex-end;	
+				}
+			}
+		}
+		nav {
 			ul {
 				margin: 0;
 				padding: 0;
@@ -93,16 +268,13 @@ a.surrounding {
 					@media screen and (min-width: $mobilelandscapewidth) {
 						display: inline-block;
 						width: auto;
+						margin: 0 $size__margin-small;
+					}
+					a {
+						text-decoration: none;
+						color: $color__text-main;
 					}
 				}
-			}
-		}
-		.telephone-number {
-			width: 100%;
-			flex: 0 0 auto;
-			@media screen and (min-width: $mobilelandscapewidth){
-				width: auto;
-				flex: 0 1 auto;
 			}
 		}
 	}

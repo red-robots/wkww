@@ -33,7 +33,7 @@ get_header("home"); ?>
 							if($images!=null && count($images)>0): ?>
 								<ul class="slides">
 									<?php for($i=0;$i<count($images);$i++):?>
-										<li class="slide"><img src="<?php echo $images[$i][url];?>" alt="<?php echo $images[$i]['title'];?>"></li>
+										<li class="slide" style="background-image: url('<?php echo $images[$i]['url'];?>');"></li>
 									<?php endfor;?>
 								</ul>
 							<?php endif; //if images 
