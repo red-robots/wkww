@@ -62,7 +62,7 @@ h1 {
 	font-size: 22px;
 }
 h2 {
-	font_size: $font__size-medium-medium-large;
+	font-size: $font__size-medium-medium-large;
 }
 p {
 	font-size: 15px;
@@ -75,7 +75,7 @@ h1,h2,h3 {
 	margin: $size__margin-medium-small 0;
 }
 #page {
-	border-top: 2px solid $color__wkww-green;
+	border-top: 3px solid $color__wkww-green;
 }
 #masthead {
 	border-bottom: 1px dotted lightgrey;

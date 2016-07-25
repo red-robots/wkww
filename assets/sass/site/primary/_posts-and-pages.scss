@@ -19,7 +19,7 @@
 		 -------------------------*/
 		.copy.pre-architect {
 			width: 100%;
-			margin: $size__margin-medium 0;
+			margin: $size__margin-medium-small 0;
 		}
 		.architect.wrapper {
 			width: 100%;
@@ -60,7 +60,7 @@
 		.architect.copy {
 			header h2 {
 				width: 100%;
-				margin: $size__margin-medium-small;
+				margin: $size__margin-medium-small 0;
 			}
 			.copy-image.wrapper {
 				display: flex;
@@ -76,10 +76,11 @@
 					flex: 0 0 auto;
 					order: 1;
 					margin: 0;
+					padding: 0;
 					@media screen and (min-width: $mobilelandscapewidth) {
 						width: $size__about-featured-image-width;
 						order: 2;
-						margin: 0 0 0 $size__margin-medium;
+						padding: 0 0 0 $size__margin-medium;
 					}
 					img {
 						width: 100%;	
@@ -106,6 +107,10 @@
 		 -----------------------------*/
 		.services.copy {
 			width: 100%;
+			margin: $size__margin-medium-small 0;
+			@media screen and (min-width: $mobilelandscapewidth) {
+				margin: $size__margin-medium-small 0 0 0;
+			}
 		}
 		.services.wrapper {
 			width: 100%;
@@ -118,15 +123,38 @@
 				width: 100%;
 				flex: 0 0 auto;
 				text-align: center;
+				border: 1px solid $color__wkww-green;
+				margin-top: $size__margin-tiny;
 				@media screen and (min-width: $mobilelandscapewidth) {
 					width: (100%-($size__service-span*$size__service-margin))/$size__service-span;
 					flex: 0 1 auto;
+					margin-top: $size__margin-medium-small;
+					&:first-child {
+						margin-top: $size__margin-medium-small;
+					}
 				}
-				header h2 {
-				
+				&:firstchild {
+					margin: 0;
+				}
+				header  {
+					padding: $size__margin-tiny;
+					background-color: $color__wkww-green;
+					@media screen and (min-width: $mobilelandscapewidth) {
+						min-height: 90px;
+						padding: $size__margin-medium;
+					}
+					h2 {
+						margin: 0;
+						color: white;
+						text-transform: uppercase;
+					}
 				}
 				.copy {
-					
+					padding: $size__margin-tiny;
+					font-family: 'Quattrocento', serif;
+					@media screen and (min-width: $mobilelandscapewidth) {
+						padding: $size__margin-medium;
+					}
 				}
 			}
 		}
