@@ -1,5 +1,8 @@
 #main {
-	article {
+	/*-------------------------------
+	 * Commonalities among all pages
+	 -------------------------------*/
+	section.error-404, section.search, > article, .portfolio-page.wrapper {
 		padding: $size__margin-tiny;
 		padding-bottom: 0;
 		display: block;
@@ -7,9 +10,21 @@
 		max-width: $deskwidth;
 		margin: 0 auto;
 		@media screen and (min-width: $mobilelandscapewidth){
-			padding:$size__margin-large $size__margin-medium-large $size__margin-large $size__margin-medium-large;
 			min-height: $size__min-all-pages-height;
 		}
+	}
+	/*-----------------------------------------------
+	 * Common to all pages except single template
+	 ------------------------------------------------*/
+	section.error-404, section.search, & > article {
+		@media screen and (min-width: $mobilelandscapewidth){
+			padding:$size__margin-large $size__margin-medium-large $size__margin-large $size__margin-medium-large;
+		}
+	}
+	/*-------------------------------------
+	 * generic for all pages except single template
+	 --------------------------------------*/
+	article {
 		> header {
 			.title {
 				
@@ -204,15 +219,8 @@
 	* Single Page Template
 	-------------------------------*/
 	.portfolio-page.wrapper {
-		padding: $size__margin-tiny;
-		padding-bottom: 0;
-		display: block;
-		width: 100%;
-		max-width: $deskwidth;
-		margin: 0 auto;
 		@media screen and (min-width: $mobilelandscapewidth){
 			padding: $size__margin-medium $size__margin-medium-large $size__margin-large $size__margin-medium-large;
-			min-height: $size__min-all-pages-height;
 		}
 		header.portfolio {
 			width: 100%;

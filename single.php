@@ -15,15 +15,16 @@ get_header(); ?>
 				<header class="portfolio">
 					<?php $args = array('taxonomy'=>"category",'order'=>'DESC','orderby'=>'name','hide_empty'=>0,'exclude'=>array(1));
 					$project_types = get_terms($args);
-					$query_from = get_query_var('type_from',null);
+					$query_from = isset($_GET['type_from']) ? $_GET['type_from'] : null;
 					$category_name = get_query_var("category_name",null);
-					if($category_name!==null):
+					if($category_name!==null && !empty($category_name)):
 						$args['slug'] = $category_name;
 					else:
 						if($query_from!==null)
 							$args['slug'] = $query_from;
 					endif;//endif for query from !== null
 					$types_from = get_terms($args);
+					//type from holds either the current category or the project type the post came from
 					$type_from = null;
 					if(!is_wp_error($types_from)&&is_array($types_from)&&!empty($types_from)):
 						$type_from = $types_from[0];
@@ -37,7 +38,7 @@ get_header(); ?>
 									<?php else: ?>
 										<li>
 									<?php endif;?>
-										<a href="<?php echo esc_url(add_query_arg('type_from',$type_from->slug,get_term_link($type->term_id)));?>"><?php echo $type->name; ?></a>
+										<a href="<?php echo get_term_link($type->term_id);?>"><?php echo $type->name; ?></a>
 									</li>
 								<?php endforeach;?>
 							</ul>
@@ -73,13 +74,22 @@ get_header(); ?>
 									)
 								);
 							$reset = 0;
-							if($post_type===null||strcmp($post_type,'post')!==0):
+							$this_page_is_post = true;
+							if ( have_posts() ): the_post();
+								if(strcmp($post->post_type,"post")!==0):
+									$this_page_is_post = false;
+								else:
+									$reset=1;
+									$slug_of_active_project=$post->post_name;
+								endif;
+							else:
+								$this_page_is_post = false;
+							endif;
+							if(!$this_page_is_post):
 								$query = new WP_Query($projects_args);
-								if($query->have_posts()):$query->the_post();$reset=1;$slug_of_active_project=$query->post->post_name;endif;?>
-							<?php else:?>
-								<?php if ( have_posts() ): the_post();$reset=1;$slug_of_active_project=$post->post_name;endif;?>
-							<?php endif;//endif for if post type is null?>
-							<?php if($reset===1):?>
+								if($query->have_posts()):$query->the_post();$reset=1;$slug_of_active_project=$query->post->post_name;endif;
+							endif;//endif for if have posts
+							if($reset===1):?>
 								<article class="featured-article">
 									<header>
 										<h2 class="title"><?php the_title();?></h2>
@@ -132,7 +142,7 @@ get_header(); ?>
 												<p class="location"><?php echo get_field("location");?></p>
 											<?php endif;?>
 										</div><!--.title .wrapper-->
-										<a href="<?php echo get_the_permalink();?>" class="surrounding full-article"></a>
+										<a href="<?php echo esc_url(add_query_arg('type_from',$type_from->slug,get_the_permalink()));?>" class="surrounding full-article"></a>
 									</div><!--.project-->
 								<?php endwhile;//endwhile for have projects
 								wp_reset_postdata();
