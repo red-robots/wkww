@@ -152,8 +152,9 @@ jQuery(document).ready(function ($) {
 	 * Custom gallery thumbnail switcher
 	 *
 	 */	
-	$('.gallery .thumbnail img').on('click',function(){ //on thumbnail click
-		var url = $(this).attr('data-full-url'); //get url from data attribute
+	$('.gallery .thumbnail.wrapper .thumbnail').on('click',function(){ //on thumbnail click
+		$('.gallery .thumbnail.wrapper .thumbnail').filter(".active").removeClass("active");
+		var url = $(this).addClass("active").find('img').attr('data-full-url'); //get url from data attribute
 		$('.gallery .featured-image img').attr('src',url); //send url to featured image
 	});
 	

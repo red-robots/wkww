@@ -17,11 +17,30 @@ get_header(); ?>
 					$project_types = get_terms($args);
 					$query_from = isset($_GET['type_from']) ? $_GET['type_from'] : null;
 					$category_name = get_query_var("category_name",null);
+					$this_post = null;
+					if(have_posts()):
+						the_post();
+						$this_post = $post;
+					endif;
 					if($category_name!==null && !empty($category_name)):
 						$args['slug'] = $category_name;
 					else:
-						if($query_from!==null)
+						if($query_from!==null):
 							$args['slug'] = $query_from;
+						else:
+							if($this_post!==null):
+								$this_post_terms = get_the_terms($this_post->ID,'category');
+								if(!is_wp_error($this_post_terms)&&is_array($this_post_terms)&&!empty($this_post_terms)):
+									$list_of_terms = array();
+									foreach($this_post_terms as $term):
+										$list_of_terms[] = $term->slug;	
+									endforeach;
+									sort($list_of_terms,SORT_STRING);
+									$list_of_terms = array_reverse($list_of_terms);
+									$args['slug']=$list_of_terms[0];								
+								endif;
+							endif;	
+						endif;
 					endif;//endif for query from !== null
 					$types_from = get_terms($args);
 					//type from holds either the current category or the project type the post came from
@@ -75,7 +94,7 @@ get_header(); ?>
 								);
 							$reset = 0;
 							$this_page_is_post = true;
-							if ( have_posts() ): the_post();
+							if ( $this_post):
 								if(strcmp($post->post_type,"post")!==0):
 									$this_page_is_post = false;
 								else:
@@ -105,7 +124,11 @@ get_header(); ?>
 											</div><!--.featured-image .wrapper-->
 											<div class="thumbnail wrapper">
 												<?php foreach($images as $image):?>
-													<div class="thumbnail">		
+													<?php if($image == $images[0]):?>
+														<div class="thumbnail active">		
+													<?php else: ?>
+														<div class="thumbnail">
+													<?php endif; ?>
 														<img data-full-url="<?php echo $image['url'];?>" src="<?php echo $image['sizes']['thumbnail'];?>" alt="<?php echo $image['title'];?>">
 													</div><!--.thumbnail-->
 												<?php endforeach;?>

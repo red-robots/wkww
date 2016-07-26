@@ -76,6 +76,9 @@
 		.copy.pre-architect {
 			width: 100%;
 			margin: $size__margin-medium-small 0;
+			p {
+				font-size: $font__size-large;
+			}
 		}
 		.architect.wrapper {
 			width: 100%;
@@ -94,13 +97,13 @@
 				flex: 0 0 auto;
 				text-align: center;
 				color: white;
-				padding: $size__margin-tiny;
+				padding: $size__margin-medium $size__margin-medium $size__margin-medium-large $size__margin-medium;
 				margin: $size__margin-tiny 0;
 				background-color: $color__wkww-green;
 				@media screen and (min-width: $mobilelandscapewidth) {
 					width: (100%-($size__about-architect-span*$size__about-architect-margin))/$size__about-architect-span;
 					flex: 0 1 auto;
-					padding: $size__margin-medium;
+					padding: $size__margin-medium-large $size__margin-medium-large $size__margin-large $size__margin-medium-large;
 					margin: 0;
 				}
 				header h2 {
@@ -167,6 +170,9 @@
 			@media screen and (min-width: $mobilelandscapewidth) {
 				margin: $size__margin-medium-small 0 0 0;
 			}
+			p {
+				font-size: $font__size-large;
+			}
 		}
 		.services.wrapper {
 			width: 100%;
@@ -175,6 +181,10 @@
 			align-items: stretch;
 			align-content: stretch;
 			flex-wrap: wrap;
+			margin: 0;
+			@media screen and (min-width: $mobilelandscapewidth) {
+				margin: $size__margin-tiny 0 0 0;
+			}
 			.service {
 				width: 100%;
 				flex: 0 0 auto;
@@ -184,13 +194,7 @@
 				@media screen and (min-width: $mobilelandscapewidth) {
 					width: (100%-($size__service-span*$size__service-margin))/$size__service-span;
 					flex: 0 1 auto;
-					margin-top: $size__margin-medium-small;
-					&:first-child {
-						margin-top: $size__margin-medium-small;
-					}
-				}
-				&:firstchild {
-					margin: 0;
+					margin-top: $size__service-margin*1.2;
 				}
 				header  {
 					padding: $size__margin-tiny;

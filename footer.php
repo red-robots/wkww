@@ -30,11 +30,27 @@
 					<div class="telephone-number"><?php echo get_field("telephone_number","option");?></div><!--.telephone-number-->
 				<?php endif;?>
 			</div><!-- .site-info -->
+			<nav class="footer-desc-menu">
+				<ul>
+					<?php if(get_field("footer_menu_1","option")):?>
+						<li>
+							<span><?php echo get_field("footer_menu_1","option");?></span>
+						</li>
+					<?php endif; ?>
+					<?php if(get_field("footer_menu_2","option")):?>
+						<li>
+							<span><?php echo get_field("footer_menu_2","option");?></span>
+						</li>
+					<?php endif; ?>
+					<?php if(get_field("footer_menu_3","option")):?>
+						<li>
+							<span><?php echo get_field("footer_menu_3","option");?></span>
+						</li>
+					<?php endif; ?>
+				</ul>
+			</nav>
 			<nav class="footer-menu">
 				<?php wp_nav_menu( array( 'theme_location'=>'footer' ) ); ?>
-			</nav>
-			<nav class="sitemap">
-				<?php wp_nav_menu( array( 'theme_location'=>'footer2' ) ); ?>
 			</nav>
 		</div><!-- wrapper -->
 	</footer><!-- #colophon -->
