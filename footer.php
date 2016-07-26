@@ -13,8 +13,8 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="wrapper" style="background-image: url('<?php if(get_field("footer_background","option"))echo wp_get_attachment_image_src(get_field("footer_background","option"),"full")[0];?>');">
+	<footer id="colophon" class="site-footer" role="contentinfo" style="background-image: url('<?php if(get_field("footer_background","option"))echo wp_get_attachment_image_src(get_field("footer_background","option"),"full")[0];?>');">
+		<div class="wrapper">
 			<div class="site-info">
 				<?php if(get_field("address_line_1","option")):?>
 					<div class="address-line-1"><?php echo get_field("address_line_1","option");?></div><!--.address-line-1-->

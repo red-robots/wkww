@@ -16,7 +16,7 @@ get_header("home"); ?>
 
 	<div id="primary-home" class="content-area">
 		<main id="main" class="site-main" role="main">
-			<article>
+			<article class="home">
 				<div class="row gallery-nav-title clear-bottom">
 					<header class="nav-title wrapper right-column">				
 						<div class="logo wrapper">
@@ -48,5 +48,4 @@ get_header("home"); ?>
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer("home");

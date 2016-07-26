@@ -7,7 +7,8 @@
 		max-width: $deskwidth;
 		margin: 0 auto;
 		@media screen and (min-width: $mobilelandscapewidth){
-			padding:$size__margin-large $size__margin-medium-large $size__margin-medium-large $size__margin-medium-large;
+			padding:$size__margin-large $size__margin-medium-large $size__margin-large $size__margin-medium-large;
+			min-height: $size__min-all-pages-height;
 		}
 		> header {
 			.title {
@@ -29,20 +30,27 @@
 			margin: $size__margin-medium-small 0;
 			ul {	
 				margin: 0;
-				padding: 0;
 				font-size: $font__size-medium-small;
 				@media screen and (min-width: $mobilelandscapewidth){
 					font-size: $font__size-medium;
 				}
 				li {
 					margin: 0;
-					padding: 0 2%;
+					padding: 0;
 					width: 100%;
 					a {
 						font-size: $font__size-medium-medium;
 						font-family: 'Quattrocento', serif;
 						text-decoration: none;
 						color: $color__text-main;
+						&:hover {
+							color: $color__wkww-green;
+						}
+					}
+					ul {
+						li {							
+							padding: 0 0 0 2%;
+						}
 					}
 				}
 			}
@@ -203,7 +211,8 @@
 		max-width: $deskwidth;
 		margin: 0 auto;
 		@media screen and (min-width: $mobilelandscapewidth){
-			padding: $size__margin-medium $size__margin-medium-large $size__margin-medium-large $size__margin-medium-large;
+			padding: $size__margin-medium $size__margin-medium-large $size__margin-large $size__margin-medium-large;
+			min-height: $size__min-all-pages-height;
 		}
 		header.portfolio {
 			width: 100%;

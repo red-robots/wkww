@@ -77,12 +77,16 @@ h1,h2,h3 {
 #page {
 	border-top: 3px solid $color__wkww-green;
 }
+body {
+	min-width: 280px;
+}
 #masthead {
 	border-bottom: 1px dotted lightgrey;
 	> .wrapper {
 		max-width: $deskwidth;
 		margin: 0 auto;
 		padding: $size__margin-tiny;
+		padding-top: $size__margin-medium;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
@@ -96,7 +100,7 @@ h1,h2,h3 {
 			width: 50%;
 			flex: 0 0 auto;
 			position: relative;
-			margin: 0 auto 0 0;
+			margin: 0 auto;
 			@media screen and (min-width: $mobilelandscapewidth){
 				width: auto;
 				max-width: 15%;
@@ -169,6 +173,11 @@ h1,h2,h3 {
 	}
 }
 #colophon {
+	border-top: 2px solid $color__wkww-maroon;
+	background-color: $color__wkww-green;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
 	> .wrapper {
 		padding: $size__margin-tiny;
 		@media screen and (min-width: $mobilelandscapewidth){
@@ -179,6 +188,7 @@ h1,h2,h3 {
 #colophon, #colophon-home {
 	font-family: 'Quattrocento Sans', sans-serif;
 	font-size: $font__size-medium;
+	color: white;
 	> .wrapper {
 		display: flex;
 		flex-wrap: wrap;
@@ -272,7 +282,7 @@ h1,h2,h3 {
 					}
 					a {
 						text-decoration: none;
-						color: $color__text-main;
+						color: white;
 					}
 				}
 			}

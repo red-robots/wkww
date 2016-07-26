@@ -1,118 +1,131 @@
-#primary-home {
-	#main {
-		article {
-			padding: $size__margin-tiny;
-			padding-bottom: 0;
-			display: block;
-			width: 100%;
-			@media screen and (min-width: $mobilelandscapewidth){
-				padding: $size__margin-medium-large;
-				padding-bottom: $size__margin-medium;
-			}
-			.row.gallery-nav-title.clear-bottom {
+#page-home {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	#primary-home {
+		#main {
+			article {
+				padding: $size__margin-tiny;
+				padding-top: $size__margin-medium;
+				padding-bottom: 0;
+				display: block;
 				width: 100%;
-				display: flex;
-				justify-content: space-between;
-				align-content: stretch;
-				flex-wrap: wrap;
 				@media screen and (min-width: $mobilelandscapewidth){
-					flex-wrap: nowrap;
+					padding: $size__margin-medium-large;
+					padding-bottom: $size__margin-medium;
 				}
-				.nav-title.wrapper.right-column {
+				.row.gallery-nav-title.clear-bottom {
 					width: 100%;
-					margin: 0;
-					padding: 0;
-					flex: 0 0 auto;
-					order: 1;
+					display: flex;
+					justify-content: space-between;
+					align-content: stretch;
+					flex-wrap: wrap;
+					min-height: 550px;
 					@media screen and (min-width: $mobilelandscapewidth){
-						width: 100%-$size__home-left-column-width;
-						order: 2;
-						padding: 0 0 0 40px;
-						padding-top: 20px;
+						flex-wrap: nowrap;
+						min-height: 0;
 					}
-					@media screen and (min-width: $tabwidth){
-						padding-top: 30px;
-					}
-					@media screen and (min-width: $midwidth){
-						padding-top: 40px;
-					}
-					@media screen and (min-width: $deskwidth){
-						padding-top: 50px;
-					}
-					.logo.wrapper {
-						position: relative;
-						width: 50%;
-						margin: 0 auto 0 0;
+					.nav-title.wrapper.right-column {
+						width: 100%;
+						margin: 0;
+						padding: 0;
+						flex: 0 0 auto;
+						order: 1;
 						@media screen and (min-width: $mobilelandscapewidth){
-							width: 70%;
+							width: 100%-$size__home-left-column-width;
+							order: 2;
+							padding: 0 0 0 40px;
+							padding-top: 20px;
 						}
-						img {
-							width: 100%;
+						@media screen and (min-width: $tabwidth){
+							padding-top: 30px;
 						}
-					}
-					nav {
-						font-family: 'Quattrocento', serif;
-						font-size: $font__size-medium-large;
-						ul {
-							margin: 0;
-							padding: $size__margin-medium 0;
-							display: flex;
-							flex-wrap: wrap;
-							justify-content: center;
-							align-items: stretch;
-							align-content: stretch;
-							li {
-								list-style: none;
-								margin: 0 auto;
+						@media screen and (min-width: $midwidth){
+							padding-top: 40px;
+						}
+						@media screen and (min-width: $deskwidth){
+							padding-top: 50px;
+						}
+						.logo.wrapper {
+							position: relative;
+							width: 50%;
+							margin: 0 auto;
+							@media screen and (min-width: $mobilelandscapewidth){
+								width: 70%;
+								margin: 0 auto 0 0;
+							}
+							img {
 								width: 100%;
-								flex: 0 0 auto;
-								text-align: center;
-								border-bottom: 1px dotted lightgrey;
-								padding: 5px;
-								@media screen and (min-width: $mobilelandscapewidth){									
-									padding: 15px;
-									margin: 0;
-									text-align: left;
-								}
-								&:first-child {
-									border-top: 1px dotted lightgrey;
-								}
-								a {
-									text-decoration: none;
-									color: $color__text-main;
+							}
+						}
+						nav {
+							font-family: 'Quattrocento', serif;
+							font-size: $font__size-medium-large;
+							ul {
+								margin: 0;
+								padding: $size__margin-medium 0;
+								display: flex;
+								flex-wrap: wrap;
+								justify-content: center;
+								align-items: stretch;
+								align-content: stretch;
+								li {
+									list-style: none;
+									margin: 0 auto;
+									width: 100%;
+									flex: 0 0 auto;
+									text-align: center;
+									border-bottom: 1px dotted lightgrey;
+									padding: 5px;
+									@media screen and (min-width: $mobilelandscapewidth){									
+										padding: 15px;
+										margin: 0;
+										text-align: left;
+									}
+									&:first-child {
+										border-top: 1px dotted lightgrey;
+									}
+									a {
+										text-decoration: none;
+										color: $color__text-main;
+									}
 								}
 							}
 						}
 					}
-				}
-				.gallery.wrapper.left-column.size-4-3 {
-					width: 100%;
-					margin: 0;
-					flex: 0 0 auto;
-					order: 2;
-					@media screen and (min-width: $mobilelandscapewidth){
-						width: $size__home-left-column-width;
-						order: 1;
-					}
-					.slides {
-						.slide {
-							background-size: cover;
-							background-position: center;
+					.gallery.wrapper.left-column.size-4-3 {
+						width: 100%;
+						margin: 0;
+						flex: 0 0 auto;
+						order: 2;
+						@media screen and (min-width: $mobilelandscapewidth){
+							width: $size__home-left-column-width;
+							order: 1;
+						}
+						.slides {
+							.slide {
+								background-size: cover;
+								background-position: center;
+							}
 						}
 					}
 				}
-			}
-			.row.copy {
-				width: 100%;
-				margin: 0;
-				padding: $size__margin-tiny 1.5*$size__margin-tiny 1px 1.5*$size__margin-tiny;
-				font-weight: 700;
-				@media screen and (min-width: $mobilelandscapewidth){
-				padding: $size__margin-medium 1.5*$size__margin-medium-large 1px 1.5*$size__margin-medium-large;
-				}
-				@media screen and (min-width: $tabwidth){
-					width: $size__home-left-column-width;
-					margin: 0 auto 0 0;
+				.row.copy {
+					width: 100%;
+					margin: 0;
+					padding: $size__margin-tiny 1.5*$size__margin-tiny 1px 1.5*$size__margin-tiny;
+					font-weight: 700;
+					color: white;
+					@media screen and (min-width: $mobilelandscapewidth){
+						padding: $size__margin-medium 1.5*$size__margin-medium-large 1px 1.5*$size__margin-medium-large;
+					}
+					@media screen and (min-width: $tabwidth){
+						width: $size__home-left-column-width;
+						margin: 0 auto 0 0;
+					}
+					h1,h2,h3,a {
+						color: white;
+					}
 				}
 			}
 		}
