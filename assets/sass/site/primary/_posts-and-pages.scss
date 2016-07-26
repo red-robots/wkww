@@ -14,6 +14,39 @@
 				
 			}
 		}
+		/*---------------------------
+		 * Page & Sitemap Template Specific
+		 ---------------------------*/
+		.copy.sitemap, .copy.page {
+			width: 100%;
+			margin: $size__margin-medium-small 0;
+		}
+		/*----------------------------
+		 * Sitemap Template Specific
+		 -----------------------------*/
+		nav.sitemap {
+			width: 100%;
+			margin: $size__margin-medium-small 0;
+			ul {	
+				margin: 0;
+				padding: 0;
+				font-size: $font__size-medium-small;
+				@media screen and (min-width: $mobilelandscapewidth){
+					font-size: $font__size-medium;
+				}
+				li {
+					margin: 0;
+					padding: 0 2%;
+					width: 100%;
+					a {
+						font-size: $font__size-medium-medium;
+						font-family: 'Quattrocento', serif;
+						text-decoration: none;
+						color: $color__text-main;
+					}
+				}
+			}
+		}
 		/*------------------------
 		 * About template specific
 		 -------------------------*/
@@ -190,14 +223,15 @@
 						font-size: $font__size-medium;
 					}
 					li {
-						margin: 0 2%;
+						margin: 0;
 						padding: 0;
 						width: 100%;
 						flex: 0 0 auto;
 						list-style: none;
 						@media screen and (min-width: $mobilelandscapewidth) {
 							display: inline-block;
-							width: auto;
+							width: auto;	
+							padding: 0 2%;
 						}
 						a {
 							font-size: $font__size-medium-medium;

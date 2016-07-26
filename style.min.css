@@ -1437,7 +1437,13 @@ h1,h2,h3{font-family:'Quattrocento',serif;font-weight:700;color:#8f0e0e;margin:1
 }#colophon>.wrapper nav ul li a,#colophon-home>.wrapper nav ul li a{text-decoration:none;color:#404040}
 #main article{padding:5px;padding-bottom:0;display:block;width:100%;max-width:1300px;margin:0 auto}
 @media screen and (min-width:600px){#main article{padding:40px 30px 30px 30px}
-}#main article .copy.pre-architect{width:100%;margin:15px 0}
+}#main article .copy.sitemap,#main article .copy.page{width:100%;margin:15px 0}
+#main article nav.sitemap{width:100%;margin:15px 0}
+#main article nav.sitemap ul{margin:0;padding:0;font-size:13px}
+@media screen and (min-width:600px){#main article nav.sitemap ul{font-size:15px}
+}#main article nav.sitemap ul li{margin:0;padding:0 2%;width:100%}
+#main article nav.sitemap ul li a{font-size:16px;font-family:'Quattrocento',serif;text-decoration:none;color:#404040}
+#main article .copy.pre-architect{width:100%;margin:15px 0}
 #main article .architect.wrapper{width:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:stretch;-webkit-align-items:stretch;-ms-flex-align:stretch;align-items:stretch;-webkit-align-content:stretch;-ms-flex-line-pack:stretch;align-content:stretch;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-bottom:5px}
 @media screen and (min-width:600px){#main article .architect.wrapper{-webkit-flex-wrap:nowrap;-ms-flex-wrap:nowrap;flex-wrap:nowrap;margin-bottom:30px}
 }#main article .architect.wrapper .architect{width:100%;-webkit-box-flex:0;-webkit-flex:0 0 auto;-ms-flex:0 0 auto;flex:0 0 auto;text-align:center;color:white;padding:5px;margin:5px 0;background-color:#9aa99f}
@@ -1471,8 +1477,8 @@ h1,h2,h3{font-family:'Quattrocento',serif;font-weight:700;color:#8f0e0e;margin:1
 #main .portfolio-page.wrapper header.portfolio .project-type{width:100%}
 #main .portfolio-page.wrapper header.portfolio .project-type ul{margin:0;padding:0;text-align:center;font-size:13px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:stretch;-webkit-align-items:stretch;-ms-flex-align:stretch;align-items:stretch;-webkit-align-content:stretch;-ms-flex-line-pack:stretch;align-content:stretch}
 @media screen and (min-width:600px){#main .portfolio-page.wrapper header.portfolio .project-type ul{font-size:15px}
-}#main .portfolio-page.wrapper header.portfolio .project-type ul li{margin:0 2%;padding:0;width:100%;-webkit-box-flex:0;-webkit-flex:0 0 auto;-ms-flex:0 0 auto;flex:0 0 auto;list-style:none}
-@media screen and (min-width:600px){#main .portfolio-page.wrapper header.portfolio .project-type ul li{display:inline-block;width:auto}
+}#main .portfolio-page.wrapper header.portfolio .project-type ul li{margin:0;padding:0;width:100%;-webkit-box-flex:0;-webkit-flex:0 0 auto;-ms-flex:0 0 auto;flex:0 0 auto;list-style:none}
+@media screen and (min-width:600px){#main .portfolio-page.wrapper header.portfolio .project-type ul li{display:inline-block;width:auto;padding:0 2%}
 }#main .portfolio-page.wrapper header.portfolio .project-type ul li a{font-size:16px;font-family:'Quattrocento',serif;text-decoration:none;color:#9aa99f}
 #main .portfolio-page.wrapper header.portfolio .project-type ul li.active a{font-weight:700}
 #main .portfolio-page.wrapper .copy.project-type{width:100%;padding:30px;background-color:#9aa99f;text-align:center}

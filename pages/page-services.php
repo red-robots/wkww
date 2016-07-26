@@ -12,7 +12,7 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 			<?php if(have_posts()):the_post();?>
-				<article>
+				<article class="services">
 					<header>
 						<h1 class="title"><?php echo get_the_title();?></h1>
 					</header>
