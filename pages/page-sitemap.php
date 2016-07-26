@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all pages.
+ * Template Name: Sitemap
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -25,6 +25,9 @@ get_header(); ?>
 							<?php the_content();?>
 						</section>
 					<?php endif;?>
+					<section class="sitemap">
+						<?php wp_nav_menu( array( 'theme_location' => 'sitemap' ) ); ?>
+					</section>
 				</article>
 			<?php endif; // endif for have posts?>
 		</main><!-- #main -->

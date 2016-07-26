@@ -34,7 +34,7 @@
 				<?php wp_nav_menu( array( 'theme_location'=>'footer' ) ); ?>
 			</nav>
 			<nav class="sitemap">
-				<?php wp_nav_menu( array( 'theme_location'=>'sitemap' ) ); ?>
+				<?php wp_nav_menu( array( 'theme_location'=>'footer2' ) ); ?>
 			</nav>
 		</div><!-- wrapper -->
 	</footer><!-- #colophon -->
