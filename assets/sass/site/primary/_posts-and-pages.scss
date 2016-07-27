@@ -314,7 +314,7 @@
 						header {
 							margin: 0 0 $size__margin-tiny 0;
 							@media screen and (min-width: $mobilelandscapewidth) {
-								margin: 0 0 $size__margin-medium 0;
+								margin: 0 0 $size__margin-medium-small 0;
 							}
 							.title {
 								margin: 0;
@@ -330,7 +330,7 @@
 						.gallery.wrapper {
 							margin: $size__margin-tiny 0;
 							@media screen and (min-width: $mobilelandscapewidth) {
-								margin: $size__margin-medium 0;
+								margin: $size__margin-medium-small 0 $size__margin-medium 0;
 							}
 							.featured-image.wrapper {
 								width: 100%;
@@ -365,7 +365,7 @@
 						.copy {
 							margin: $size__margin-tiny 0;
 							@media screen and (min-width: $mobilelandscapewidth) {
-								margin: $size__margin-medium 0;
+								margin: $size__margin-medium 0 0 0;
 							}
 						}
 					}
