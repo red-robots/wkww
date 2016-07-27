@@ -4,7 +4,6 @@
 	 -------------------------------*/
 	section.error-404, section.search, > article, .portfolio-page.wrapper {
 		padding: $size__margin-tiny;
-		padding-bottom: 0;
 		display: block;
 		width: 100%;
 		max-width: $deskwidth;
@@ -99,7 +98,8 @@
 				color: white;
 				padding: $size__margin-medium $size__margin-medium $size__margin-medium-large $size__margin-medium;
 				margin: $size__margin-tiny 0;
-				background-color: $color__wkww-green;
+				background-position: center;
+				background-repeat: repeat;
 				@media screen and (min-width: $mobilelandscapewidth) {
 					width: (100%-($size__about-architect-span*$size__about-architect-margin))/$size__about-architect-span;
 					flex: 0 1 auto;
@@ -303,10 +303,11 @@
 					width: 100%;
 					flex: 0 0 auto;
 					order: 1;
-					padding-left: $size__margin-medium-large;
+					padding: 0;
 					@media screen and (min-width: $mobilelandscapewidth) {
 						width: $size__portfolio-featured-article-width;
 						order: 2;
+						padding-left: $size__margin-medium-large;
 					}
 					.featured-article {
 						padding: 0;
@@ -325,8 +326,10 @@
 						.gallery.wrapper {
 							.featured-image.wrapper {
 								width: 100%;
+								margin: 0;
 								img {
 									width: 100%;
+									display: block;
 								}
 							}
 							.thumbnail.wrapper {
@@ -335,12 +338,18 @@
 								flex-wrap: wrap;
 								justify-content: space-between;
 								align-items: stretch;
-								align-content: stretch;
+								align-content: space-between;
 								.thumbnail {
+									margin: $size__portfolio-gallery-thumbnail-margin-width 0 0 0;
 									width: (100%-($size__portfolio-gallery-thumbnail-margin-width*(($size__portfolio-gallery-thumbnail-span)-1)))/$size__portfolio-gallery-thumbnail-span;
-									flex: 0 1 auto;					
+									flex: 0 1 auto;	
+									border: 2px solid white;				
 									img {
 										width: 100%;
+										display: block;
+									}
+									&.active, &:hover {
+										border: 2px solid $color__wkww-green;
 									}
 								}
 							}
@@ -370,7 +379,7 @@
 						&:last-child {
 							margin: 0;
 						}
-						&.active {
+						&.active, &:hover {
 							background-color: $color__wkww-green;
 							.title-location.wrapper {
 								.title {

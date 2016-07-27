@@ -28,7 +28,7 @@ get_header(); ?>
 								$person = get_sub_field("name");
 								$copy = get_sub_field("description");
 								if($copy && $person):?>
-									<div class="architect">
+									<div class="architect" <?php if(get_field("architects_background"))echo "style=\"background-image: url('".wp_get_attachment_image_src(get_field("architects_background"),"full")[0]."');\"";?>>
 										<header>
 											<h2><?php echo $person?></h2>
 										</header>
