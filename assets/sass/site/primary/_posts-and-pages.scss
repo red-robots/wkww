@@ -312,6 +312,10 @@
 					.featured-article {
 						padding: 0;
 						header {
+							margin: 0 0 $size__margin-tiny 0;
+							@media screen and (min-width: $mobilelandscapewidth) {
+								margin: 0 0 $size__margin-medium 0;
+							}
 							.title {
 								margin: 0;
 								font-size: $font__size-medium-medium-large;
@@ -324,6 +328,10 @@
 							}
 						}
 						.gallery.wrapper {
+							margin: $size__margin-tiny 0;
+							@media screen and (min-width: $mobilelandscapewidth) {
+								margin: $size__margin-medium 0;
+							}
 							.featured-image.wrapper {
 								width: 100%;
 								margin: 0;
@@ -338,7 +346,7 @@
 								flex-wrap: wrap;
 								justify-content: space-between;
 								align-items: stretch;
-								align-content: space-between;
+								align-content: stretch;
 								.thumbnail {
 									margin: $size__portfolio-gallery-thumbnail-margin-width 0 0 0;
 									width: (100%-($size__portfolio-gallery-thumbnail-margin-width*(($size__portfolio-gallery-thumbnail-span)-1)))/$size__portfolio-gallery-thumbnail-span;
@@ -355,7 +363,10 @@
 							}
 						}
 						.copy {
-							
+							margin: $size__margin-tiny 0;
+							@media screen and (min-width: $mobilelandscapewidth) {
+								margin: $size__margin-medium 0;
+							}
 						}
 					}
 				}
