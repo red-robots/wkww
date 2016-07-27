@@ -34,17 +34,17 @@
 				<ul>
 					<?php if(get_field("footer_menu_1","option")):?>
 						<li>
-							<?php echo get_field("footer_menu_1","option");?>
+							<span><?php echo get_field("footer_menu_1","option");?></span>
 						</li>
 					<?php endif; ?>
 					<?php if(get_field("footer_menu_2","option")):?>
 						<li>
-							<?php echo get_field("footer_menu_2","option");?>
+							<span><?php echo get_field("footer_menu_2","option");?></span>
 						</li>
 					<?php endif; ?>
 					<?php if(get_field("footer_menu_3","option")):?>
 						<li>
-							<?php echo get_field("footer_menu_3","option");?>
+							<span><?php echo get_field("footer_menu_3","option");?></span>
 						</li>
 					<?php endif; ?>
 				</ul>
