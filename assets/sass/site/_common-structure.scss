@@ -223,14 +223,22 @@ body {
 				font-size: $font__size-medium;
 				@media screen and (min-width: $mobilelandscapewidth) {
 					display: inline-block;
+					margin: 0 0 0 $size__margin-extra-tiny;
 					width: auto;
+				}
+				&:first-child {
+					margin: 0;
 				}
 			}
 			.separator {
 				display: none;
 				@media screen and (min-width: $mobilelandscapewidth) {
 					display: block;
+					margin: 0 0 0 $size__margin-tiny;
 				}
+			}
+			.telephone-number {
+				margin: 0 0 0 $size__margin-tiny; 
 			}
 		}
 		.footer-desc-menu {
