@@ -58,22 +58,21 @@ jQuery(document).ready(function ($) {
 	*	Smooth Scroll to Anchor
 	*
 	------------------------------------*/
-	 $('a').click(function(){
+	 /*$('a').click(function(){
 	    $('html, body').animate({
 	        scrollTop: $('[name="' + $.attr(this, 'href').substr(1) + '"]').offset().top
 	    }, 500);
 	    return false;
-	});
+	});*/
 
 	/*
 	*
 	*	Nice Page Scroll
 	*
 	------------------------------------*/
-	/*$(function(){	
+	$(function(){	
 		$("html").niceScroll();
 	});
-	*/
 	
 	
 	/*
