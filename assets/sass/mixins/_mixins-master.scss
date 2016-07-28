@@ -22,3 +22,10 @@
 @mixin clearfix-after() {
 	clear: both;
 }
+
+@mixin hypens($value){
+	-ms-hyphens: $value;
+	-moz-hypens: $value;
+	-webkit-hypens: $value;
+	hyphens: $value;
+}

@@ -1,20 +1,7 @@
-
-div {
-	/* These are technically the same, but use both */
-	overflow-wrap: break-word;
-	word-wrap: break-word;
-
-	-ms-word-break: break-all;
-	/* This is the dangerous one in WebKit, as it breaks things wherever */
-	word-break: break-all;
-	/* Instead use this non-standard one: */
-	word-break: break-word;
-
-	/* Adds a hyphen where the word breaks, if supported (No Blink) */
-	-ms-hyphens: auto;
-	-moz-hyphens: auto;
-	-webkit-hyphens: auto;
-	hyphens: auto;
+body {
+	font-family: 'Quattrocento', serif;
+	word-break: keep-all;
+	@include hyphens(none);
 }
 .clear {clear: both;}
 .clear-bottom {
@@ -46,6 +33,9 @@ a.surrounding {
 		&:last-child {
 			margin-bottom:0;
 		}
+	}
+	a {
+		color: #8F0E0E;
 	}
 }
 
@@ -101,7 +91,7 @@ body {
 			width: 50%;
 			flex: 0 0 auto;
 			position: relative;
-			margin: 0 auto;
+			margin: 0 auto $size__margin-medium auto;
 			@media screen and (min-width: $mobilelandscapewidth){
 				width: auto;
 				max-width: 15%;
@@ -110,6 +100,7 @@ body {
 			}
 			img {
 				width: 100%;
+				display: block;
 			}
 		}
 		#site-navigation {
@@ -250,6 +241,8 @@ body {
 			}
 			ul {
 				li {
+					width: auto;
+					display: inline-block;
 					&:first-child {
 						span {
 							&:before {
@@ -260,10 +253,10 @@ body {
 					span {
 						&:before {
 							content: "|";
-							display: none;
+							margin: 0 $size__margin-small;
+							display: inline-block;
 							@media screen and (min-width: $mobilelandscapewidth){
 								margin: 0 $size__margin-medium-small;
-								display: inline-block;
 							}
 						}
 					}

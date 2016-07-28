@@ -122,16 +122,20 @@ get_header(); ?>
 											<div class="featured-image wrapper">
 												<img src="<?php echo $images[0]['url'];?>" alt="<?php echo $images[0]['title'];?>"> 
 											</div><!--.featured-image .wrapper-->
-											<div class="thumbnail wrapper">
-												<?php foreach($images as $image):?>
-													<?php if($image == $images[0]):?>
-														<div class="thumbnail active">		
-													<?php else: ?>
-														<div class="thumbnail">
-													<?php endif; ?>
-														<img data-full-url="<?php echo $image['url'];?>" src="<?php echo $image['sizes']['thumbnail'];?>" alt="<?php echo $image['title'];?>">
-													</div><!--.thumbnail-->
-												<?php endforeach;?>
+											<div class="thumbnail wrapper clear-bottom">
+												<?php $count = 0;
+												foreach($images as $image):?>
+													<div class="thumbnail false-margin wrapper <?php echo "count-".$count%5 ?>">
+														<?php if($image == $images[0]):?>
+															<div class="thumbnail active ">
+														<?php else: ?>
+															<div class="thumbnail">
+														<?php endif; ?>
+															<img data-full-url="<?php echo $image['url'];?>" src="<?php echo $image['sizes']['thumbnail'];?>" alt="<?php echo $image['title'];?>">
+														</div><!--.thumbnail-->
+													</div><!--.thumbnail .false.margin .wrapper -->
+													<?php $count++;
+												endforeach;?>
 											</div><!--.thumbnail .wrapper-->
 										</section><!--.gallery .wrapper-->
 									<?php endif;?>
@@ -144,6 +148,11 @@ get_header(); ?>
 								<?php wp_reset_postdata();?>
 							<?php endif;//endif for if reset 1?>
 						</div><!--.featured-project .wrapper .right-column-->
+						<?php if($post_obj!==null):?>
+							<header class="mobile">
+								<h3 class="sub-title"><?php echo "Other ".$post_obj->labels->name;?></h3>
+							</header>
+						<?php endif;?>
 						<aside class="projects wrapper left-column">
 							<?php $query = new WP_Query($projects_args);
 							if($query->have_posts()):

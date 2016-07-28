@@ -7,7 +7,7 @@
 			article {
 				padding: $size__margin-tiny;
 				padding-top: $size__margin-medium;
-				padding-bottom: 0;
+				padding-bottom: $size__margin-medium;
 				display: block;
 				width: 100%;
 				@media screen and (min-width: $mobilelandscapewidth){

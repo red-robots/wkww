@@ -29,6 +29,7 @@
 				
 			}
 		}
+
 		/*---------------------------
 		 * Page & Sitemap Template Specific
 		 ---------------------------*/
@@ -36,6 +37,40 @@
 			width: 100%;
 			margin: $size__margin-medium-small 0;
 		}
+
+		/*----------------------------------
+		 * Two Column Template Specific
+		 -----------------------------------*/
+		.copy-map.wrapper.clear-bottom {
+			display: flex;
+			justify-content: space-between;
+			align-content: stretch;
+			align-items: stretch;
+			flex-wrap: wrap;
+			@media screen and (min-width: $mobilelandscapewidth){
+				flex-wrap: nowrap;
+			}
+			.copy.left-column {
+				width: 100%;
+				flex: 0 1 auto;
+				order: 1;
+				margin: 0 0 $size__margin-medium 0;
+				@media screen and (min-width: $mobilelandscapewidth){
+					width: $size__two-column-left-column-width;
+					margin: 0;
+				}
+			}
+			.map.right-column {
+				width: 100%;
+				flex: 0 1 auto;
+				order: 2;
+				@media screen and (min-width: $mobilelandscapewidth){
+					width: 100%-$size__two-column-left-column-width;
+					margin: 0;
+				}
+			}
+		}
+		 
 		/*----------------------------
 		 * Sitemap Template Specific
 		 -----------------------------*/
@@ -79,40 +114,44 @@
 				font-size: $font__size-large;
 			}
 		}
-		.architect.wrapper {
+		.architect.wrapper.clear-bottom {
 			width: 100%;
-			display: flex;
-			justify-content: space-between;
-			align-items: stretch;
-			align-content: stretch;
-			flex-wrap: wrap;
 			margin-bottom: $size__margin-tiny;
 			@media screen and (min-width: $mobilelandscapewidth) {	
-				flex-wrap: nowrap;
 				margin-bottom: $size__margin-medium-large;
 			}
-			.architect {
+			.architect.false-margin.wrapper.js-blocks {
 				width: 100%;
-				flex: 0 0 auto;
-				text-align: center;
-				color: white;
-				padding: $size__margin-medium $size__margin-medium $size__margin-medium-large $size__margin-medium;
-				margin: $size__margin-tiny 0;
+				float: left;
+				display: block;
 				background-position: center;
 				background-repeat: repeat;
-				@media screen and (min-width: $mobilelandscapewidth) {
-					width: (100%-($size__about-architect-span*$size__about-architect-margin))/$size__about-architect-span;
-					flex: 0 1 auto;
-					padding: $size__margin-medium-large $size__margin-medium-large $size__margin-large $size__margin-medium-large;
-					margin: 0;
+				margin: $size__margin-tiny 0 0 0;
+				@media screen and (min-width: $mobilelandscapewidth) {	
+					width: (100%-($size__about-architect-margin*(($size__about-architect-span)-1)))/$size__about-architect-span;		
+					margin: $size__about-architect-margin $size__about-architect-margin 0 0;							
+					&.count-2 {
+						margin-right: 0;
+					}
 				}
-				header h2 {
-					text-transform: uppercase;
+				.architect {
+					width: 100%;
+					height: 100%;
+					text-align: center;
 					color: white;
-				}
-				.copy {
-					font-weight: 700;
-					font-family: 'Quattrocento', serif;
+					padding: $size__margin-medium $size__margin-medium $size__margin-medium-large $size__margin-medium;
+					margin: 0;
+					@media screen and (min-width: $mobilelandscapewidth) {
+						padding: $size__margin-medium-large $size__margin-medium-large $size__margin-large $size__margin-medium-large;
+					}
+					header h2 {
+						text-transform: uppercase;
+						color: white;
+					}
+					.copy {
+						font-weight: 700;
+						font-family: 'Quattrocento', serif;
+					}
 				}
 			}
 		}
@@ -174,46 +213,48 @@
 				font-size: $font__size-large;
 			}
 		}
-		.services.wrapper {
+		.services.wrapper.clear-bottom {
 			width: 100%;
-			display: flex;
-			justify-content: space-between;
-			align-items: stretch;
-			align-content: stretch;
-			flex-wrap: wrap;
 			margin: 0;
 			@media screen and (min-width: $mobilelandscapewidth) {
 				margin: $size__margin-tiny 0 0 0;
 			}
-			.service {
+			.service.false-margin.wrapper.js-blocks {
 				width: 100%;
-				flex: 0 0 auto;
-				text-align: center;
-				border: 1px solid $color__wkww-green;
-				margin-top: $size__margin-tiny;
+				float: left;
+				display:block;
+				margin: $size__margin-tiny 0 0 0;
 				@media screen and (min-width: $mobilelandscapewidth) {
-					width: (100%-($size__service-span*$size__service-margin))/$size__service-span;
-					flex: 0 1 auto;
-					margin-top: $size__service-margin*1.2;
-				}
-				header  {
-					padding: $size__margin-tiny;
-					background-color: $color__wkww-green;
-					@media screen and (min-width: $mobilelandscapewidth) {
-						min-height: 90px;
-						padding: $size__margin-medium;
-					}
-					h2 {
-						margin: 0;
-						color: white;
-						text-transform: uppercase;
+					width: (100%-((($size__service-span)-1)*$size__service-margin))/$size__service-span;
+					margin: $size__service-margin $size__service-margin 0 0;
+					&.count-2 {
+						margin-right: 0;
 					}
 				}
-				.copy {
-					padding: $size__margin-tiny;
-					font-family: 'Quattrocento', serif;
-					@media screen and (min-width: $mobilelandscapewidth) {
-						padding: $size__margin-medium;
+				.service {
+					width: 100%;
+					height: 100%;
+					text-align: center;
+					border: 1px solid $color__wkww-green;					
+					header  {
+						padding: $size__margin-tiny;
+						background-color: $color__wkww-green;
+						@media screen and (min-width: $mobilelandscapewidth) {
+							min-height: 96px;
+							padding: $size__margin-medium;
+						}
+						h2 {
+							margin: 0;
+							color: white;
+							text-transform: uppercase;
+						}
+					}
+					.copy {
+						padding: $size__margin-tiny;
+						font-family: 'Quattrocento', serif;
+						@media screen and (min-width: $mobilelandscapewidth) {
+							padding: $size__margin-medium;
+						}
 					}
 				}
 			}
@@ -304,6 +345,7 @@
 					flex: 0 0 auto;
 					order: 1;
 					padding: 0;
+					margin: 0;
 					@media screen and (min-width: $mobilelandscapewidth) {
 						width: $size__portfolio-featured-article-width;
 						order: 2;
@@ -340,40 +382,55 @@
 									display: block;
 								}
 							}
-							.thumbnail.wrapper {
+							.thumbnail.wrapper.clear-bottom {
 								width: 100%;
-								display: flex;
-								flex-wrap: wrap;
-								justify-content: space-between;
-								align-items: stretch;
-								align-content: stretch;
-								.thumbnail {
-									margin: $size__portfolio-gallery-thumbnail-margin-width 0 0 0;
-									width: (100%-($size__portfolio-gallery-thumbnail-margin-width*(($size__portfolio-gallery-thumbnail-span)-1)))/$size__portfolio-gallery-thumbnail-span;
-									flex: 0 1 auto;	
-									border: 2px solid white;				
-									img {
-										width: 100%;
-										display: block;
+								.thumbnail.false-margin.wrapper {
+									width: (100%-($size__portfolio-gallery-thumbnail-margin-width*(($size__portfolio-gallery-thumbnail-span)-1)))/$size__portfolio-gallery-thumbnail-span;		
+									float: left;
+									margin: $size__portfolio-gallery-thumbnail-margin-width $size__portfolio-gallery-thumbnail-margin-width 0 0;									
+									&.count-4 {
+										margin-right: 0;
 									}
-									&.active, &:hover {
-										border: 2px solid $color__wkww-green;
+									.thumbnail {
+										border: 2px solid white;	
+										width: 100%;
+										img {
+											width: 100%;
+											display: block;
+										}
+										&.active, &:hover {
+											border: 2px solid $color__wkww-green;
+											cursor: pointer;
+										}
 									}
 								}
 							}
 						}
 						.copy {
-							margin: $size__margin-tiny 0;
+							margin: $size__margin-tiny 0 0 0;
 							@media screen and (min-width: $mobilelandscapewidth) {
 								margin: $size__margin-medium 0 0 0;
 							}
 						}
 					}
 				}
+				header.mobile {
+					width: 100%;
+					display: block;
+					flex: 0 0 auto;
+					order: 2;
+					@media screen and (min-width: $mobilelandscapewidth) {
+						display: none;
+					}
+					.sub-title {
+						
+					}
+				}
 				.projects.wrapper.left-column {
 					width: 100%;
 					flex: 0 0 auto;
-					order: 2;
+					order: 3;
+					margin: 0;
 					@media screen and (min-width: $mobilelandscapewidth) {
 						width: 100%-$size__portfolio-featured-article-width;	
 						order: 1;

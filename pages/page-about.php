@@ -23,22 +23,26 @@ get_header(); ?>
 						</section><!--.copy .pre-architect-->
 					<?php endif;?>
 					<?php if(have_rows("architects")):?>
-						<section class="architect wrapper">
-							<?php while(have_rows("architects")):the_row();
+						<div class="architect wrapper clear-bottom">
+							<?php $count = 0;
+							while(have_rows("architects")):the_row();
 								$person = get_sub_field("name");
 								$copy = get_sub_field("description");
 								if($copy && $person):?>
-									<div class="architect" <?php if(get_field("architects_background"))echo "style=\"background-image: url('".wp_get_attachment_image_src(get_field("architects_background"),"full")[0]."');\"";?>>
-										<header>
-											<h2><?php echo $person?></h2>
-										</header>
-										<div class="copy">
-											<?php echo $copy;?>
-										</div><!--.copy-->
-									</div><!--.architect-->
-								<?php endif;//endif for person and copy?>
+									<div class="architect false-margin wrapper js-blocks <?php echo "count-".$count%3 ?>" <?php if(get_field("architects_background"))echo "style=\"background-image: url('".wp_get_attachment_image_src(get_field("architects_background"),"full")[0]."');\"";?>>
+										<section class="architect">
+											<header>
+												<h2><?php echo $person?></h2>
+											</header>
+											<div class="copy">
+												<?php echo $copy;?>
+											</div><!--.copy-->
+										</section><!--.architect-->
+									</div><!--.architect .false-margin .wrapper-->
+									<?php $count++;
+								endif;//endif for person and copy?>
 							<?php endwhile;//endwhile for have rows?>
-						</section><!--.architect .wrapper-->
+						</div><!--.architect .wrapper-->
 					<?php endif;//if for have rows?>
 					<section class="architect copy">
 						<?php if(get_field("title_of_firm","option")):?>

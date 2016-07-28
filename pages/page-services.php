@@ -24,19 +24,23 @@ get_header(); ?>
 					<?php $args = array('post_type'=>'service','posts_per_page'=>-1);
 					$query = new WP_Query($args);
 					if($query->have_posts()):?>
-						<div class="services wrapper">
-							<?php while($query->have_posts()):$query->the_post();?>
-								<section class="service">
-									<header>
-										<h2 class="title"><?php echo get_the_title();?></h2>
-									</header>
-									<?php if(get_the_content()):?>
-										<section class="copy">
-											<?php the_content();?>
-										</section><!--.copy-->
-									<?php endif;?>
-								</section><!--.service-->
-							<?php endwhile;//endwhile for have posts?>
+						<div class="services wrapper clear-bottom">
+							<?php $count = 0;
+							while($query->have_posts()):$query->the_post();?>
+								<div class="service false-margin wrapper js-blocks <?php echo "count-".$count%3 ?>">
+									<section class="service">
+										<header>
+											<h2 class="title"><?php echo get_the_title();?></h2>
+										</header>
+										<?php if(get_the_content()):?>
+											<section class="copy">
+												<?php the_content();?>
+											</section><!--.copy-->
+										<?php endif;?>
+									</section><!--.service-->
+								</div><!--.service .false-margin .wrapper-->
+								<?php $count++;
+							endwhile;//endwhile for have posts?>
 						</div><!--.services .wrapper-->
 					<?php endif;//endif for have posts?>
 				</article>
