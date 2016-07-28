@@ -71,7 +71,7 @@ jQuery(document).ready(function ($) {
 	*
 	------------------------------------*/
 	$(function(){	
-		$("html").niceScroll();
+		//$("html").niceScroll();
 	});
 	
 	

@@ -23,9 +23,22 @@ a.surrounding {
 	top:0;
 	left:0;
 }
-
+header {
+	padding-left: $size__margin-small;
+	padding-right: $size__margin-small;
+	@media screen and (min-width: $mobilelandscapewidth){
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
 .copy {
 	font-family: 'Quattrocento', serif;
+	padding-left: $size__margin-small;
+	padding-right: $size__margin-small;
+	@media screen and (min-width: $mobilelandscapewidth){
+		padding-left: 0;
+		padding-right: 0;
+	}
 	h1,h2,h3,p {
 		&:first-child {
 			margin-top:0;
