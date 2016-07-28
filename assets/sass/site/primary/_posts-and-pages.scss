@@ -2,7 +2,7 @@
 	/*-------------------------------
 	 * Commonalities among all pages
 	 -------------------------------*/
-	section.error-404, section.search, > article, .portfolio-page.wrapper {
+	.error-404, section.search, > article, .portfolio-page.wrapper {
 		padding: $size__margin-tiny;
 		display: block;
 		width: 100%;
@@ -15,7 +15,7 @@
 	/*-----------------------------------------------
 	 * Common to all pages except single template
 	 ------------------------------------------------*/
-	section.error-404, section.search, & > article {
+	.error-404, section.search, & > article {
 		@media screen and (min-width: $mobilelandscapewidth){
 			padding:$size__margin-large $size__margin-medium-large $size__margin-large $size__margin-medium-large;
 		}
@@ -31,13 +31,12 @@
 		}
 
 		/*---------------------------
-		 * Page & Sitemap Template Specific
+		 * Page & Sitemap & 404 Template Specific
 		 ---------------------------*/
 		.copy.sitemap, .copy.page {
 			width: 100%;
 			margin: $size__margin-medium-small 0;
 		}
-
 		/*----------------------------------
 		 * Two Column Template Specific
 		 -----------------------------------*/
@@ -476,6 +475,45 @@
 								font-family: 'Quattrocento', serif;
 								margin: 0;
 								font-size: $font__size-medium-small;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	/*-----------------------------------
+	* 404 Template specific
+	------------------------------------*/
+   .error-404 {
+		.copy-404 {
+			width: 100%;
+			margin: $size__margin-medium-small 0;
+			nav.sitemap {
+				width: 100%;
+				margin: $size__margin-medium-small 0;
+				ul {	
+					margin: 0;
+					font-size: $font__size-medium-small;
+					@media screen and (min-width: $mobilelandscapewidth){
+						font-size: $font__size-medium;
+					}
+					li {
+						margin: 0;
+						padding: 0;
+						width: 100%;
+						a {
+							font-size: $font__size-medium-medium;
+							font-family: 'Quattrocento', serif;
+							text-decoration: none;
+							color: $color__text-main;
+							&:hover {
+								color: $color__wkww-green;
+							}
+						}
+						ul {
+							li {							
+								padding: 0 0 0 2%;
 							}
 						}
 					}
