@@ -83,7 +83,7 @@ get_header(); ?>
 					$slug_of_active_project = null;?>
 					<div class="projects-featured-project wrapper">
 						<div class="featured-project wrapper right-column">
-							<?php $projects_args = array('post_type'=>'post','order'=>'ASC','orderby'=>'name','posts_per_page'=>-1);
+							<?php $projects_args = array('post_type'=>'post','order'=>'ASC','orderby'=>'title','posts_per_page'=>-1);
 							if($type_from!==null)
 								$projects_args['tax_query']=array(
 									array(
