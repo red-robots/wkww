@@ -1433,6 +1433,9 @@ body{min-width:280px;word-break:keep-all}
 #colophon>.wrapper .site-info .separator,#colophon-home>.wrapper .site-info .separator{display:none}
 @media screen and (min-width:600px){#colophon>.wrapper .site-info .separator,#colophon-home>.wrapper .site-info .separator{display:block;margin:0 0 0 5px}
 }#colophon>.wrapper .site-info .telephone-number,#colophon-home>.wrapper .site-info .telephone-number{margin:0 0 0 5px}
+#colophon>.wrapper .site-info .telephone-number a,#colophon-home>.wrapper .site-info .telephone-number a{color:white;text-decoration:underline}
+@media screen and (min-width:600px){#colophon>.wrapper .site-info .telephone-number a,#colophon-home>.wrapper .site-info .telephone-number a{text-decoration:none}
+}#colophon>.wrapper .site-info .telephone-number a[x-apple-data-detectors],#colophon-home>.wrapper .site-info .telephone-number a[x-apple-data-detectors]{color:white;text-decoration:underline}
 #colophon>.wrapper .footer-desc-menu,#colophon-home>.wrapper .footer-desc-menu{width:100%;-webkit-box-flex:0;-webkit-flex:0 0 auto;-ms-flex:0 0 auto;flex:0 0 auto}
 @media screen and (min-width:600px){#colophon>.wrapper .footer-desc-menu,#colophon-home>.wrapper .footer-desc-menu{width:auto;-webkit-box-flex:0;-webkit-flex:0 1 auto;-ms-flex:0 1 auto;flex:0 1 auto}
 }#colophon>.wrapper .footer-desc-menu ul li,#colophon-home>.wrapper .footer-desc-menu ul li{width:auto;display:inline-block}

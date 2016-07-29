@@ -242,7 +242,18 @@ body {
 				}
 			}
 			.telephone-number {
-				margin: 0 0 0 $size__margin-tiny; 
+				margin: 0 0 0 $size__margin-tiny;
+				a {
+					color: white;
+					text-decoration: underline;
+					@media screen and (min-width: $mobilelandscapewidth) {
+						text-decoration: none;
+					}
+					&[x-apple-data-detectors] {
+						color: white;
+						text-decoration: underline;
+					}
+				}
 			}
 		}
 		.footer-desc-menu {

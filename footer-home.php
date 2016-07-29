@@ -27,7 +27,11 @@
 				<?php endif;?>
 				<div class="separator">/</div><!--.seperator-->
 				<?php if(get_field("telephone_number","option")):?>
-					<div class="telephone-number"><?php echo get_field("telephone_number","option");?></div><!--.telephone-number-->
+					<?php if(get_field("telephone_number_link","option")):?>
+						<div class="telephone-number"><a href="tel://<?php echo get_field("telephone_number_link","option");?>" target="_blank"><?php echo get_field("telephone_number","option");?></a></div><!--.telephone-number-->
+					<?php else: ?>
+						<div class="telephone-number"><?php echo get_field("telephone_number","option");?></div><!--.telephone-number-->
+					<?php endif;?>
 				<?php endif;?>
 			</div><!-- .site-info -->
 			<nav class="footer-desc-menu">
