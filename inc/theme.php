@@ -34,14 +34,14 @@ add_filter('login_headerurl','loginpage_custom_link');
 function custom_background() {?>
 <style type="text/css">
   #page-home {
-		<?php if(get_field("background",2)):?>
-	  	background-image: url(<?php echo wp_get_attachment_image_src(get_field("background",2),"full")[0];?>);
+		<?php if(get_field("background_mobile",2)):?>
+	  	background-image: url(<?php echo wp_get_attachment_image_src(get_field("background_mobile",2),"full")[0];?>);
 		<?php endif;?>
   }
 	@media screen and (min-width: 500px){
 		#page-home {
-			<?php if(get_field("background_mobile",2)):?>
-				background-image: url(<?php echo wp_get_attachment_image_src(get_field("background_mobile",2),"full")[0];?>);			
+			<?php if(get_field("background",2)):?>
+				background-image: url(<?php echo wp_get_attachment_image_src(get_field("background",2),"full")[0];?>);			
 			<?php endif;?>
 		}
 	}
