@@ -20,10 +20,12 @@
 					justify-content: space-between;
 					align-content: stretch;
 					flex-wrap: wrap;
-					min-height: 570px;
 					@media screen and (min-width: $mobilelandscapewidth){
 						flex-wrap: nowrap;
 						min-height: 405px;
+					}
+					@media screen and (min-width: $mobilelandscapewidth){
+						min-height: 450px;
 					}
 					.nav-title.wrapper.right-column {
 						width: 100%;

@@ -36,6 +36,8 @@ function custom_background() {?>
   #page-home {
 		<?php if(get_field("background_mobile",2)):?>
 	  	background-image: url(<?php echo wp_get_attachment_image_src(get_field("background_mobile",2),"full")[0];?>);
+		<?php else: if(get_field("background",2))?>
+				background-image: url(<?php echo wp_get_attachment_image_src(get_field("background",2),"full")[0];?>);
 		<?php endif;?>
   }
 	@media screen and (min-width: 500px){
