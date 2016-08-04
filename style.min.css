@@ -1561,7 +1561,7 @@ body{min-width:280px;word-break:keep-all}
 .blog .format-aside .entry-title,.archive .format-aside .entry-title{display:none}
 .comment-content a{word-wrap:break-word}
 .bypostauthor{display:block}
-#page-home{background-size:cover;background-repeat:no-repeat;background-position:center}
+#page-home{background-size:cover;background-repeat:no-repeat;background-position:top}
 #page-home #primary-home #main article{padding:5px;padding-top:20px;padding-bottom:20px;display:block;width:100%}
 @media screen and (min-width:600px){#page-home #primary-home #main article{padding:30px;padding-bottom:20px}
 }#page-home #primary-home #main article .row.gallery-nav-title.clear-bottom{width:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-content:stretch;-ms-flex-line-pack:stretch;align-content:stretch;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;min-height:570px}
