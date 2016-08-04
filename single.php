@@ -84,7 +84,7 @@ get_header(); ?>
 					<div class="projects-featured-project wrapper">
 						<div class="featured-project wrapper right-column">
 							<?php remove_all_filters('posts_orderby');
-							$projects_args = array('post_type'=>'post','posts_per_page'=>-1);
+							$projects_args = array('post_type'=>'post','order'=>'ASC','orderby'=>'menu_order','posts_per_page'=>-1);
 							if($type_from!==null)
 								$projects_args['tax_query']=array(
 									array(
