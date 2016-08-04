@@ -13,7 +13,7 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 			<div class="portfolio-page wrapper">
 				<header class="portfolio">
-					<?php $args = array('taxonomy'=>"category",'order'=>'DESC','orderby'=>'name','hide_empty'=>0,'exclude'=>array(1));
+					<?php $args = array('taxonomy'=>"category",'order'=>'ASC','orderby'=>'menu_order','hide_empty'=>0,'exclude'=>array(1));
 					$project_types = get_terms($args);
 					$query_from = isset($_GET['type_from']) ? $_GET['type_from'] : null;
 					$category_name = get_query_var("category_name",null);
