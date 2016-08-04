@@ -1400,7 +1400,7 @@ h1{font-size:22px}
 h2{font-size:18px}
 p{font-size:15px;margin:15px 0}
 h1,h2,h3{font-family:'Quattrocento',serif;font-weight:700;color:#8f0e0e;margin:15px 0}
-#page{border-top:3px solid #9aa99f}
+#page,#page-home{border-top:3px solid #9aa99f}
 body{min-width:280px;word-break:keep-all}
 #masthead{border-bottom:1px dotted lightgrey}
 #masthead>.wrapper{max-width:1300px;margin:0 auto;padding:5px;padding-top:20px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}
