@@ -95,12 +95,26 @@ jQuery(document).ready(function ($) {
 	 * Maintain porportion for boxes size 4x3
 	 */
 	$(window).on('ready resize',function(){
-		var $4x3 = $('.size-4-3');
-		$4x3.css({
-			"height": Number($4x3.width())*3/4+"px"
+		$('.size-4-3').each(function(){	
+			var $this = $(this);
+			$this.css({
+				"height": Number($this.width())*3/4+"px"
+			});
 		});
 	});
 	
+	/*
+	 * Maintain porportion for boxes size 4x2.8
+	 */
+	$(window).on('ready resize',function(){
+		$('.size-4-2-5').each(function(){	
+			var $this = $(this);
+			console.log($this);
+			$this.css({
+				"height": Number($this.width())*2.5/4+"px"
+			});
+		});
+	});
 	/*--------------------------------------------
 	 * Custom slider for homepage
 	 ------------------------------------------*/

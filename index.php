@@ -27,7 +27,7 @@ get_header("home"); ?>
 							<?php wp_nav_menu( array( 'theme_location'=>'primary' ) ); ?>
 						</nav>
 					</header><!--.nav-title .wrapper .right-column-->
-					<div class="gallery wrapper left-column size-4-3">
+					<div class="gallery wrapper left-column size-4-2-5">
 						<?php if(get_field("gallery")): 
 							$images = get_field("gallery");
 							if($images!=null && count($images)>0): ?>
