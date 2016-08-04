@@ -2,6 +2,9 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: top;
+	@media screen and (min-width: $midwidth){
+		background-size: 100% 120%;
+	}			
 	#primary-home {
 		#main {
 			article {
