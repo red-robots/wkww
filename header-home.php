@@ -25,5 +25,5 @@
 setup_postdata($post);?>
 
 <body <?php body_class(); ?>>
-<div id="page-home" class="site" <?php if(get_field("background"))echo 'style="background-image: url(\''.wp_get_attachment_image_src(get_field("background"),"full")[0].'\');"'?>>
+<div id="page-home" class="site">
 	<div id="content" class="site-content wrapper">
