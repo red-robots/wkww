@@ -84,7 +84,7 @@ get_header(); ?>
 						<div class="featured-project wrapper right-column">
 							<?php remove_all_filters('posts_orderby');
 							$pagen = isset($_GET['pagen']) ? absint( $_GET[ 'pagen' ] ) : 1;
-							$projects_args = array('post_type'=>'post','order'=>'ASC','orderby'=>'menu_order','posts_per_page'=>15,'paged'=>$pagen);
+							$projects_args = array('post_type'=>'post','order'=>'ASC','orderby'=>'menu_order','posts_per_page'=>12,'paged'=>$pagen);
 							if($type_from!==null)
 								$projects_args['tax_query']=array(
 									array(
