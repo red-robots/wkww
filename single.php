@@ -18,13 +18,13 @@ get_header(); ?>
 					$query_from = isset($_GET['type_from']) ? $_GET['type_from'] : null;
 					$category_name = get_query_var("category_name",null);
 					$this_post = null;
-					if(have_posts()):
-						the_post();
-						$this_post = $post;
-					endif;
 					if($category_name!==null && !empty($category_name)):
 						$args['slug'] = $category_name;
 					else:
+                        if(have_posts()):
+                            the_post();
+                            $this_post = $post;
+                        endif;
 						if($query_from!==null):
 							$args['slug'] = $query_from;
 						else:
@@ -36,7 +36,6 @@ get_header(); ?>
 										$list_of_terms[] = $term->slug;	
 									endforeach;
 									sort($list_of_terms,SORT_STRING);
-									$list_of_terms = array_reverse($list_of_terms);
 									$args['slug']=$list_of_terms[0];								
 								endif;
 							endif;	
@@ -84,7 +83,8 @@ get_header(); ?>
 					<div class="projects-featured-project wrapper">
 						<div class="featured-project wrapper right-column">
 							<?php remove_all_filters('posts_orderby');
-							$projects_args = array('post_type'=>'post','order'=>'ASC','orderby'=>'menu_order','posts_per_page'=>-1);
+							$pagen = isset($_GET['pagen']) ? absint( $_GET[ 'pagen' ] ) : 1;
+							$projects_args = array('post_type'=>'post','order'=>'ASC','orderby'=>'menu_order','posts_per_page'=>15,'paged'=>$pagen);
 							if($type_from!==null)
 								$projects_args['tax_query']=array(
 									array(
@@ -175,11 +175,34 @@ get_header(); ?>
 												<p class="location"><?php echo get_field("location");?></p>
 											<?php endif;?>
 										</div><!--.title .wrapper-->
-										<a href="<?php echo esc_url(add_query_arg('type_from',$type_from->slug,get_the_permalink()));?>" class="surrounding full-article"></a>
+										<a href="<?php echo esc_url(add_query_arg(array(
+                                                'type_from'=>$type_from->slug,
+                                                'pagen'=>$pagen
+                                            ),get_the_permalink()));?>" class="surrounding full-article"></a>
 									</div><!--.project-->
 								<?php endwhile;//endwhile for have projects
 								wp_reset_postdata();
 							endif;//end if for have projects?>
+							<nav class="pagination clear-bottom">
+							<?php $max = intval( $query->max_num_pages );
+							$previousn = $pagen-1<1?1:$pagen-1;
+							$nextn = $pagen+1>$max?$max:$pagen+1;?>
+                                <ul>
+                                    <?php if($pagen>1):?>
+                                        <li class="previous"><a href="<?php echo esc_url(add_query_arg(array(
+                                                'type_from'=>$type_from->slug,
+                                                'pagen'=>$previousn
+                                            )));?>">Previous</a></li>
+                                    <?php endif;?>
+                                    <li class="pagen"><?php echo $pagen;?></li>
+                                    <?php if($pagen<$max):?>
+                                        <li class="next"><a href="<?php echo esc_url(add_query_arg(array(
+                                                'type_from'=>$type_from->slug,
+                                                'pagen'=>$nextn
+                                            )));?>">Next</a></li>
+                                    <?php endif;?>
+                                </ul>
+							</nav>
 						</aside><!--.projects .wrapper .left-column-->
 					</div><!--.projects-featured-project .wrapper-->
 				</section><!--.projects-sub-title .wrapper-->

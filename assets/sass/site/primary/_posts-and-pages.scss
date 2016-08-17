@@ -478,6 +478,35 @@
 							}
 						}
 					}
+					.pagination.clear-bottom {
+                        display: block;
+                        width: 100%;
+                        ul {
+                            margin: 0;
+                            padding: 0;
+                            text-align: center;
+                            li {
+                                display: inline-block;
+                                padding: $size__margin-tiny $size__margin-extra-tiny;
+                                margin: 0 $size__margin-tiny;
+                                background-color: $color__wkww-green;
+                                list-style-type: none;
+                                text-transform: uppercase;
+                                color: white;
+                                a {
+                                    color: white;
+                                    text-decoration: none;
+                                }
+                            }
+                            .previous {
+                            }
+                            .pagen {
+                                padding: $size__margin-tiny $size__margin-small;
+                            }
+                            .next {
+                            }
+                        }
+                    }
 				}
 			}
 		}
