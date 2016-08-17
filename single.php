@@ -126,7 +126,7 @@ get_header(); ?>
 											<div class="thumbnail wrapper clear-bottom">
 												<?php $count = 0;
 												foreach($images as $image):?>
-													<div class="thumbnail false-margin wrapper <?php echo "count-".$count%5 ?>">
+													<div class="thumbnail false-margin wrapper <?php echo "count-".$count%6 ?>">
 														<?php if($image == $images[0]):?>
 															<div class="thumbnail active ">
 														<?php else: ?>
