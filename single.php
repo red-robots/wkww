@@ -194,7 +194,18 @@ get_header(); ?>
                                                 'pagen'=>$previousn
                                             )));?>">Previous</a></li>
                                     <?php endif;?>
-                                    <li class="pagen"><?php echo $pagen;?></li>
+                                    <?php for($i=1;$i<=$max;$i++):?>
+                                        <li class="pagen">
+                                            <?php if($i!==$pagen):?>
+                                                <a href="<?php echo esc_url(add_query_arg(array(
+                                                    'type_from'=>$type_from->slug,
+                                                    'pagen'=>$i
+                                                )));?>"><?php echo $i;?></a>
+                                            <?php else:?>
+                                                <?php echo $i;?>
+                                            <?php endif;?>
+                                        </li>
+                                    <?php endfor;?>
                                     <?php if($pagen<$max):?>
                                         <li class="next"><a href="<?php echo esc_url(add_query_arg(array(
                                                 'type_from'=>$type_from->slug,

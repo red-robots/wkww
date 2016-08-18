@@ -481,18 +481,22 @@
 					.pagination.clear-bottom {
                         display: block;
                         width: 100%;
+                        margin: $size__margin-medium 0 0 0;
                         ul {
                             margin: 0;
                             padding: 0;
-                            text-align: center;
+                            text-align: left;
                             li {
                                 display: inline-block;
-                                padding: $size__margin-tiny $size__margin-extra-tiny;
+                                padding: $size__margin-tiny $size__margin-small;
                                 margin: 0 $size__margin-tiny;
                                 background-color: $color__wkww-green;
                                 list-style-type: none;
-                                text-transform: uppercase;
+                                text-transform: capitalize;
                                 color: white;
+                                &:first-child {
+                                    margin-left: 0;
+                                }
                                 a {
                                     color: white;
                                     text-decoration: none;
@@ -501,7 +505,7 @@
                             .previous {
                             }
                             .pagen {
-                                padding: $size__margin-tiny $size__margin-small;
+                                
                             }
                             .next {
                             }
