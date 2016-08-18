@@ -175,45 +175,49 @@ get_header(); ?>
 												<p class="location"><?php echo get_field("location");?></p>
 											<?php endif;?>
 										</div><!--.title .wrapper-->
-										<a href="<?php echo esc_url(add_query_arg(array(
-                                                'type_from'=>$type_from->slug,
-                                                'pagen'=>$pagen
-                                            ),get_the_permalink()));?>" class="surrounding full-article"></a>
-									</div><!--.project-->
+										<?php if($type_from!==null):?>
+                                            <a href="<?php echo esc_url(add_query_arg(array(
+                                                    'type_from'=>$type_from->slug,
+                                                    'pagen'=>$pagen
+                                                ),get_the_permalink()));?>" class="surrounding full-article"></a>
+                                        <?php endif;?>
+                                    </div><!--.project-->
 								<?php endwhile;//endwhile for have projects
 								wp_reset_postdata();
 							endif;//end if for have projects?>
-							<nav class="pagination clear-bottom">
-							<?php $max = intval( $query->max_num_pages );
-							$previousn = $pagen-1<1?1:$pagen-1;
-							$nextn = $pagen+1>$max?$max:$pagen+1;?>
-                                <ul>
-                                    <?php if($pagen>1):?>
-                                        <li class="previous"><a href="<?php echo esc_url(add_query_arg(array(
-                                                'type_from'=>$type_from->slug,
-                                                'pagen'=>$previousn
-                                            )));?>">Previous</a></li>
-                                    <?php endif;?>
-                                    <?php for($i=1;$i<=$max;$i++):?>
-                                        <li class="pagen">
-                                            <?php if($i!==$pagen):?>
-                                                <a href="<?php echo esc_url(add_query_arg(array(
+                            <?php if($type_from!==null):?>
+                                <nav class="pagination clear-bottom">
+                                <?php $max = intval( $query->max_num_pages );
+                                $previousn = $pagen-1<1?1:$pagen-1;
+                                $nextn = $pagen+1>$max?$max:$pagen+1;?>
+                                    <ul>
+                                        <?php if($pagen>1):?>
+                                            <li class="previous"><a href="<?php echo esc_url(add_query_arg(array(
                                                     'type_from'=>$type_from->slug,
-                                                    'pagen'=>$i
-                                                )));?>"><?php echo $i;?></a>
-                                            <?php else:?>
-                                                <?php echo $i;?>
-                                            <?php endif;?>
-                                        </li>
-                                    <?php endfor;?>
-                                    <?php if($pagen<$max):?>
-                                        <li class="next"><a href="<?php echo esc_url(add_query_arg(array(
-                                                'type_from'=>$type_from->slug,
-                                                'pagen'=>$nextn
-                                            )));?>">Next</a></li>
-                                    <?php endif;?>
-                                </ul>
-							</nav>
+                                                    'pagen'=>$previousn
+                                                )));?>">Previous</a></li>
+                                        <?php endif;?>
+                                        <?php for($i=1;$i<=$max;$i++):?>
+                                            <li class="pagen">
+                                                <?php if($i!==$pagen):?>
+                                                    <a href="<?php echo esc_url(add_query_arg(array(
+                                                        'type_from'=>$type_from->slug,
+                                                        'pagen'=>$i
+                                                    )));?>"><?php echo $i;?></a>
+                                                <?php else:?>
+                                                    <?php echo $i;?>
+                                                <?php endif;?>
+                                            </li>
+                                        <?php endfor;?>
+                                        <?php if($pagen<$max):?>
+                                            <li class="next"><a href="<?php echo esc_url(add_query_arg(array(
+                                                    'type_from'=>$type_from->slug,
+                                                    'pagen'=>$nextn
+                                                )));?>">Next</a></li>
+                                        <?php endif;?>
+                                    </ul>
+                                </nav>
+                            <?php endif;?>
 						</aside><!--.projects .wrapper .left-column-->
 					</div><!--.projects-featured-project .wrapper-->
 				</section><!--.projects-sub-title .wrapper-->
