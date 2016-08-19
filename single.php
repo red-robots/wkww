@@ -18,6 +18,7 @@ get_header(); ?>
 					$query_from = isset($_GET['type_from']) ? $_GET['type_from'] : null;
 					$category_name = get_query_var("category_name",null);
 					$this_post = null;
+					$active_term_link=null;
 					if($category_name!==null && !empty($category_name)):
 						$args['slug'] = $category_name;
 					else:
@@ -203,7 +204,7 @@ get_header(); ?>
 								<?php endwhile;//endwhile for have projects
 								wp_reset_postdata();
 							endif;//end if for have projects?>
-                            <?php if($type_from!==null):?>
+                            <?php if($active_term_link!==null):?>
                                 <nav class="pagination clear-bottom">
                                 <?php $max = intval( $query->max_num_pages );
                                 $previousn = $paged-1<1?1:$paged-1;
