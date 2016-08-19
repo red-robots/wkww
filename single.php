@@ -51,7 +51,8 @@ get_header(); ?>
 						<nav class="project-type">
 							<ul>
 								<?php foreach($project_types as $type):
-									if($type_from!==null && strcmp($type->slug,$type_from->slug)===0):?>
+									if($type_from!==null && strcmp($type->slug,$type_from->slug)===0):
+                                        $active_term_link = get_term_link($type->term_id);?>
 										<li class="active">
 									<?php else: ?>
 										<li>
@@ -83,8 +84,8 @@ get_header(); ?>
 					<div class="projects-featured-project wrapper">
 						<div class="featured-project wrapper right-column">
 							<?php remove_all_filters('posts_orderby');
-							$pagen = isset($_GET['pagen']) ? absint( $_GET[ 'pagen' ] ) : 1;
-							$projects_args = array('post_type'=>'post','order'=>'ASC','orderby'=>'menu_order','posts_per_page'=>12,'paged'=>$pagen);
+							$paged= $paged === 0?1:$paged;
+							$projects_args = array('post_type'=>'post','order'=>'ASC','orderby'=>'menu_order','posts_per_page'=>12,'paged'=>$paged);
 							if($type_from!==null)
 								$projects_args['tax_query']=array(
 									array(
@@ -155,7 +156,25 @@ get_header(); ?>
 							</header>
 						<?php endif;?>
 						<aside class="projects wrapper left-column">
-							<?php $query = new WP_Query($projects_args);
+							<?php 
+							if($this_page_is_post):
+                                unset($projects_args['paged']);
+                                $projects_args['posts_per_page']=-1;
+                                $index = 0;
+                                $query = new WP_Query($projects_args);
+                                if($query->have_posts()):
+                                    while($query->have_posts()):$query->the_post();
+                                        if(strcmp($slug_of_active_project,$query->post->post_name)===0)
+                                           break;
+                                        $index++;
+                                    endwhile;
+                                    wp_reset_postdata();
+                                endif;
+                                $paged = absint($index/12+1);
+                                $projects_args['posts_per_page']=12;
+                                $projects_args['paged']=$paged;
+							endif;
+							$query = new WP_Query($projects_args);
 							if($query->have_posts()):
 								while($query->have_posts()):$query->the_post();
 									if(strcmp($slug_of_active_project,$query->post->post_name)===0):?>
@@ -177,10 +196,9 @@ get_header(); ?>
 										</div><!--.title .wrapper-->
 										<?php if($type_from!==null):?>
                                             <a href="<?php echo esc_url(add_query_arg(array(
-                                                    'type_from'=>$type_from->slug,
-                                                    'pagen'=>$pagen
+                                                    'type_from'=>$type_from->slug
                                                 ),get_the_permalink()));?>" class="surrounding full-article"></a>
-                                        <?php endif;?>
+                                        <?php endif;//if for type from !== null?>
                                     </div><!--.project-->
 								<?php endwhile;//endwhile for have projects
 								wp_reset_postdata();
@@ -188,36 +206,27 @@ get_header(); ?>
                             <?php if($type_from!==null):?>
                                 <nav class="pagination clear-bottom">
                                 <?php $max = intval( $query->max_num_pages );
-                                $previousn = $pagen-1<1?1:$pagen-1;
-                                $nextn = $pagen+1>$max?$max:$pagen+1;?>
+                                $previousn = $paged-1<1?1:$paged-1;
+                                $nextn = $paged+1>$max?$max:$paged+1;?>
                                     <ul>
-                                        <?php if($pagen>1):?>
-                                            <li class="previous"><a href="<?php echo esc_url(add_query_arg(array(
-                                                    'type_from'=>$type_from->slug,
-                                                    'pagen'=>$previousn
-                                                )));?>">Previous</a></li>
+                                        <?php if($paged>1):?>
+                                            <li class="previous"><a href="<?php echo esc_url(custom_get_pagenum_link($active_term_link,$previousn));?>">Previous</a></li>
                                         <?php endif;?>
                                         <?php for($i=1;$i<=$max;$i++):?>
                                             <li class="pagen">
-                                                <?php if($i!==$pagen):?>
-                                                    <a href="<?php echo esc_url(add_query_arg(array(
-                                                        'type_from'=>$type_from->slug,
-                                                        'pagen'=>$i
-                                                    )));?>"><?php echo $i;?></a>
+                                                <?php if($i!==$paged):?>
+                                                    <a href="<?php echo esc_url(custom_get_pagenum_link($active_term_link,$i));?>"><?php echo $i;?></a>
                                                 <?php else:?>
                                                     <?php echo $i;?>
                                                 <?php endif;?>
                                             </li>
                                         <?php endfor;?>
-                                        <?php if($pagen<$max):?>
-                                            <li class="next"><a href="<?php echo esc_url(add_query_arg(array(
-                                                    'type_from'=>$type_from->slug,
-                                                    'pagen'=>$nextn
-                                                )));?>">Next</a></li>
+                                        <?php if($paged<$max):?>
+                                            <li class="next"><a href="<?php echo esc_url(custom_get_pagenum_link($active_term_link,$nextn));?>">Next</a></li>
                                         <?php endif;?>
                                     </ul>
                                 </nav>
-                            <?php endif;?>
+                            <?php endif;//if for type from !== null?>
 						</aside><!--.projects .wrapper .left-column-->
 					</div><!--.projects-featured-project .wrapper-->
 				</section><!--.projects-sub-title .wrapper-->
