@@ -91,8 +91,8 @@ get_header(); ?>
 								$projects_args['tax_query']=array(
 									array(
 										'taxonomy'=>'category',
-										'field'=>'slug',
-										'terms'=>$type_from->slug
+										'field'=>'id',
+										'terms'=>$type_from->term_id
 									)
 								);
 							$reset = 0;
