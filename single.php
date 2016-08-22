@@ -13,7 +13,7 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 			<div class="portfolio-page wrapper">
 				<header class="portfolio">
-					<?php $args = array('taxonomy'=>"category",'order'=>'ASC','orderby'=>'menu_order','hide_empty'=>0,'exclude'=>array(1));
+					<?php $args = array('taxonomy'=>"category",'order'=>'ASC','orderby'=>'term_order','hide_empty'=>0,'exclude'=>array(1));
 					$project_types = get_terms($args);
 					$query_from = isset($_GET['type_from']) ? $_GET['type_from'] : null;
 					$category_name = get_query_var("category_name",null);
@@ -86,7 +86,7 @@ get_header(); ?>
 						<div class="featured-project wrapper right-column">
 							<?php remove_all_filters('posts_orderby');
 							$paged= $paged === 0?1:$paged;
-							$projects_args = array('post_type'=>'post','order'=>'ASC','orderby'=>'term_order','posts_per_page'=>12,'paged'=>$paged);
+							$projects_args = array('post_type'=>'post','order'=>'ASC','orderby'=>'menu_order','posts_per_page'=>12,'paged'=>$paged);
 							if($type_from!==null)
 								$projects_args['tax_query']=array(
 									array(
