@@ -21,7 +21,7 @@ get_header(); ?>
 							<?php the_content();?>
 						</section><!--.copy-->
 					<?php endif;?>
-					<?php $args = array('post_type'=>'service','posts_per_page'=>-1);
+					<?php $args = array('post_type'=>'service','posts_per_page'=>-1,'order'=>'ASC','orderby'=>'menu_order');
 					$query = new WP_Query($args);
 					if($query->have_posts()):?>
 						<div class="services wrapper clear-bottom">

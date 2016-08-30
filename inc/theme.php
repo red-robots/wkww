@@ -10,6 +10,7 @@
 /*-------------------------------------
 	Custom client login, link and title.
 ---------------------------------------*/
+define( 'DISALLOW_FILE_EDIT', true );
 function my_login_logo() { ?>
 <style type="text/css">
   body.login div#login h1 a {
