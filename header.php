@@ -28,8 +28,10 @@
 			<div class="logo wrapper">
 				<img src="<?php if(get_field("logo","option")):
                     $img = wp_get_attachment_image_src(get_field("logo","option"),"full");
-                    echo $img[0];
-                    endif;?>" alt="WKWW Architects Logo" id="logo">
+                    if($img): 
+                        echo $img[0];
+                    endif;
+                endif;?>" alt="WKWW Architects Logo" id="logo">
 				<a href="<?php echo get_bloginfo("url");?>" class="surrounding"></a>
 			</div><!--.logo .wrapper-->
 			<nav id="site-navigation" class="main-navigation" role="navigation">

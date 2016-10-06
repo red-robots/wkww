@@ -31,7 +31,9 @@ get_header(); ?>
 								if($copy && $person):?>
 									<div class="architect false-margin wrapper js-blocks <?php echo "count-".$count%3 ?>" <?php if(get_field("architects_background")):
                                         $img =wp_get_attachment_image_src(get_field("architects_background"),"full");
-                                        echo "style=\"background-image: url('".$img[0]."');\"";
+                                        if($img):
+                                            echo "style=\"background-image: url('".$img[0]."');\"";
+                                        endif;
                                     endif;?>>
 										<section class="architect">
 											<header>
@@ -56,7 +58,9 @@ get_header(); ?>
 						<div class="copy-image wrapper">
 							<?php $copy = get_field("description");
 							$featured_image_url = wp_get_attachment_image_src(get_field("featured_image"),"full");
-							$featured_image_url = $featured_image_url[0];
+							if($featured_image_url):
+                                $featured_image_url = $featured_image_url[0];
+                            endif;
 							$thumbnail = get_post(get_field("featured_image"));
 							if($featured_image_url):?>
 								<div class="featured-image right-column">
