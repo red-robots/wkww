@@ -20,7 +20,10 @@ get_header("home"); ?>
 				<div class="row gallery-nav-title clear-bottom">
 					<header class="nav-title wrapper right-column">				
 						<div class="logo wrapper">
-							<img src="<?php if(get_field("logo","option"))echo wp_get_attachment_image_src(get_field("logo","option"),"full")[0];?>" alt="WKWW Architects Logo" id="logo">
+							<img src="<?php if(get_field("logo","option")):
+                                $img = wp_get_attachment_image_src(get_field("logo","option"),"full");
+                                echo $img[0];
+                            endif;?>" alt="WKWW Architects Logo" id="logo">
 							<a href="<?php echo get_bloginfo("url");?>" class="surrounding"></a>
 						</div><!--.logo .wrapper-->
 						<nav>

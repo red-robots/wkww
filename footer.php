@@ -13,7 +13,10 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo" style="background-image: url('<?php if(get_field("footer_background","option"))echo wp_get_attachment_image_src(get_field("footer_background","option"),"full")[0];?>');">
+	<footer id="colophon" class="site-footer" role="contentinfo" style="background-image: url('<?php if(get_field("footer_background","option")):
+        $img = wp_get_attachment_image_src(get_field("footer_background","option"),"full");
+        echo $img[0];
+    endif;?>');">
         <?php $facebook_link = get_field("facebook_link","option");
         $instagram_link = get_field("instagram_link","option");
         $row_1 = false;

@@ -2,11 +2,14 @@
 	background-repeat: no-repeat;
 	background-position: bottom;
     background-size: 150% 110%;
+    @media screen and (min-width: $mobilelandscapewidth){
+        background-size: 150% 100%;
+        background-position: top;
+    }
 	@media screen and (min-width: $midwidth){
 		background-size: 150% 110%;
-        background-position: top;
 	}
-	@media screen and (min-width: 1050px){
+	@media screen and (min-width: 1100px){
 		background-size: 100% 120%;
 	}
 	#primary-home {

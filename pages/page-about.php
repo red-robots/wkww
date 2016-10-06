@@ -29,7 +29,10 @@ get_header(); ?>
 								$person = get_sub_field("name");
 								$copy = get_sub_field("description");
 								if($copy && $person):?>
-									<div class="architect false-margin wrapper js-blocks <?php echo "count-".$count%3 ?>" <?php if(get_field("architects_background"))echo "style=\"background-image: url('".wp_get_attachment_image_src(get_field("architects_background"),"full")[0]."');\"";?>>
+									<div class="architect false-margin wrapper js-blocks <?php echo "count-".$count%3 ?>" <?php if(get_field("architects_background")):
+                                        $img =wp_get_attachment_image_src(get_field("architects_background"),"full");
+                                        echo "style=\"background-image: url('".$img[0]."');\"";
+                                    endif;?>>
 										<section class="architect">
 											<header>
 												<h2><?php echo $person?></h2>
@@ -52,7 +55,8 @@ get_header(); ?>
 						<?php endif;?>
 						<div class="copy-image wrapper">
 							<?php $copy = get_field("description");
-							$featured_image_url = wp_get_attachment_image_src(get_field("featured_image"),"full")[0];
+							$featured_image_url = wp_get_attachment_image_src(get_field("featured_image"),"full");
+							$featured_image_url = $featured_image_url[0];
 							$thumbnail = get_post(get_field("featured_image"));
 							if($featured_image_url):?>
 								<div class="featured-image right-column">
