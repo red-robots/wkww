@@ -1,9 +1,10 @@
 #page-home {
-	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: top;
+	background-position: bottom;
+    background-size: 150% 110%;
 	@media screen and (min-width: $midwidth){
 		background-size: 150% 110%;
+        background-position: top;
 	}
 	@media screen and (min-width: 1050px){
 		background-size: 100% 120%;
