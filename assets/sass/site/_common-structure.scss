@@ -170,11 +170,20 @@ body {
 	}
 }
 #colophon-home {
+    .social-row {
+		padding: $size__margin-tiny 2.5*$size__margin-tiny 0 2.5*$size__margin-tiny;
+		@media screen and (min-width: $mobilelandscapewidth){
+			padding: $size__margin-medium 2.5*$size__margin-medium-large 0 2.5*$size__margin-medium-large;
+		}
+    }
 	> .wrapper {
 		padding: $size__margin-tiny 2.5*$size__margin-tiny;
 		@media screen and (min-width: $mobilelandscapewidth){
 			padding: $size__margin-medium 2.5*$size__margin-medium-large;
-		}		
+		}
+		&.row-above {
+            padding-top: 0;
+        }		
 	}
 }
 #colophon {
@@ -183,17 +192,53 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
+    .social-row {
+		padding: $size__margin-tiny $size__margin-tiny 0 $size__margin-tiny;
+		@media screen and (min-width: $mobilelandscapewidth){
+			padding: $size__margin-large $size__margin-medium-large 0 $size__margin-medium-large;
+		}
+    }
 	> .wrapper {
 		padding: $size__margin-tiny;
 		@media screen and (min-width: $mobilelandscapewidth){
 			padding: $size__margin-large $size__margin-medium-large;
 		}
+		&.row-above {
+            padding-top: 0;
+        }
 	}
 }
 #colophon, #colophon-home {
 	font-family: 'Quattrocento sans', sans-serif;
 	font-size: $font__size-medium;
 	color: white;
+    .social-row {
+        text-align: center;
+		@media screen and (min-width: $mobilelandscapewidth){
+            text-align: left;
+        }
+        a {
+            color: white;
+            &:hover {
+                color: white;
+            }
+            .fa {
+                display: inline-block;
+                font-size: 25px;
+                padding: $size__margin-small 0;
+                @media screen and (min-width: $mobilelandscapewidth){
+                    font-size: $font__size-large;
+                    padding: 0;
+                }
+                &.fa-facebook {
+                    margin-right: 25px;
+                    @media screen and (min-width: $mobilelandscapewidth){
+                        margin-right: $size__margin-medium-small;
+                    }
+                }
+            }
+        }
+    }
 	> .wrapper {
 		display: flex;
 		flex-wrap: wrap;

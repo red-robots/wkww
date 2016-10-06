@@ -14,7 +14,17 @@
 	</div><!-- #content -->
 
 	<footer id="colophon-home" class="site-footer" role="contentinfo">
-		<div class="wrapper">
+        <?php $facebook_link = get_field("facebook_link","option");
+        $instagram_link = get_field("instagram_link","option");
+        $row_1 = false;
+        if($facebook_link||$instagram_link):
+            $row_1 = true;?>
+            <div class="social-row">
+                <?php if($facebook_link) echo '<a href="'.$facebook_link.'" target="_blank"><i class="fa fa-facebook"></i></a>';
+                if($instagram_link) echo '<a href="'.$instagram_link.'" target="_blank"><i class="fa fa-instagram"></i></a>';?>
+            </div><!--.social-row-->
+        <?php endif;?>
+		<div class="wrapper <?php if($row_1)echo "row-above";?>">
 			<div class="site-info">
 				<?php if(get_field("address_line_1","option")):?>
 					<div class="address-line-1"><?php echo get_field("address_line_1","option");?></div><!--.address-line-1-->
