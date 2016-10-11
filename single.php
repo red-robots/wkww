@@ -122,7 +122,7 @@ get_header(); ?>
 									if(is_array($images)&&!empty($images)):?>									
 										<section class="gallery wrapper">
 											<div class="featured-image wrapper">
-												<img src="<?php echo $images[0]['url'];?>" alt="<?php echo $images[0]['title'];?>"> 
+												<img src="<?php echo $images[0]['url'];?>" alt="<?php echo $images[0]['alt'];?>"> 
 											</div><!--.featured-image .wrapper-->
 											<div class="thumbnail wrapper clear-bottom">
 												<?php $count = 0;
@@ -133,7 +133,7 @@ get_header(); ?>
 														<?php else: ?>
 															<div class="thumbnail">
 														<?php endif; ?>
-															<img data-full-url="<?php echo $image['url'];?>" src="<?php echo $image['sizes']['thumbnail'];?>" alt="<?php echo $image['title'];?>">
+															<img data-full-url="<?php echo $image['url'];?>" src="<?php echo $image['sizes']['thumbnail'];?>" alt="<?php echo $image['alt'];?>">
 														</div><!--.thumbnail-->
 													</div><!--.thumbnail .false.margin .wrapper -->
 													<?php $count++;

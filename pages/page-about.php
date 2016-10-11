@@ -61,10 +61,10 @@ get_header(); ?>
 							if($featured_image_url):
                                 $featured_image_url = $featured_image_url[0];
                             endif;
-							$thumbnail = get_post(get_field("featured_image"));
+							$thumbnail = get_post_meta( get_field("featured_image"), '_wp_attachment_image_alt', true);
 							if($featured_image_url):?>
 								<div class="featured-image right-column">
-									<img src="<?php echo $featured_image_url;?>" alt="<?php if($thumbnail)echo $thumbnail->post_title;?>">
+									<img src="<?php echo $featured_image_url;?>" alt="<?php if($thumbnail)echo $thumbnail;?>">
 								</div><!--.featured-image .right-column-->
 							<?php endif;
 							if($copy):
