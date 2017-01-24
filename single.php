@@ -15,7 +15,7 @@ get_header(); ?>
 				<header class="portfolio">
 					<?php $args = array('taxonomy'=>"category",'order'=>'ASC','orderby'=>'term_order','hide_empty'=>0,'exclude'=>array(1));
 					$project_types = get_terms($args);
-					$query_from = isset($_GET['type_from']) ? $_GET['type_from'] : null;
+					$query_from = isset($_GET['type_from']) ? sanitize_text_field($_GET['type_from']) : null;
 					$category_name = get_query_var("category_name",null);
 					$this_post = null;
 					$active_term_link=null;
